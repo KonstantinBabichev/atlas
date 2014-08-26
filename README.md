@@ -1,2 +1,4 @@
 atlas
 =====
+
+Proposed Angular Architecture
