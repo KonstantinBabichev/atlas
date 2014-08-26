@@ -1,0 +1,20 @@
+{
+  "name": "angularApp",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "*",
+    "angular-cookies": "*",
+    "angular-sanitize": "*",
+    "angular-route": "*",
+    "angular-touch": "*",
+    "angular-animate": "*",
+    "restangular": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "*",
+    "angular-scenario": "*"
+  },
+  "overrides": {
+
+  }
+}
