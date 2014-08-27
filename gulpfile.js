@@ -3,9 +3,11 @@ var compass = require('gulp-compass');
 var notify = require('gulp-notify');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var eslint = require('gulp-eslint');
 
 var sourcePaths = {
-  styles: ['sass/*.scss'] // watches for scss files in ANY folder
+  styles: ['sass/*.scss'], // watches for scss files in ANY folder
+  scripts: ['!node_modules/**','!bower_components/**','!**/*_test.js','**/*.js','app.js']
 };
 
 var distPaths = {
@@ -17,16 +19,7 @@ var server = {
   port: '8001'
 }
 
-// gulp.task('compass', function() {
-//   gulp.src(sourcePaths.styles)
-//   .pipe(compass({
-//     config_file: './config.rb',
-//     css: 'styles',
-//     sass: '**'
-//   }))
-//   .pipe(gulp.dest(distPaths.styles)) // destination of sass files
-//   .pipe(reload({stream:true})); // triggers browsersync to reload
-// });
+
 gulp.task('compass', function() {
   gulp.src(sourcePaths.styles)
   .pipe(compass({
@@ -50,8 +43,15 @@ gulp.task('serve', ['compass'], function () {
   });
 });
 
+gulp.task('eslint', function () {
+  gulp.src(sourcePaths.scripts)
+    .pipe(eslint())
+    .pipe(eslint.format());
+});
+
 gulp.task('watch', function(){
   gulp.watch(sourcePaths.styles, ['compass']);
+  gulp.watch(sourcePaths.scripts, ['eslint']);
 });
 
 gulp.task('build', ['compass']);

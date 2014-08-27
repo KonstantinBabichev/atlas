@@ -1,11 +1,26 @@
 # Tech Solutions for FE
 
+---
+
+## Javascript Framework
+
+### Options
+* [EmberJS]
+* [Backbone]
+* [AngularJS]
+
+---
+
 ## Taskrunner
 The taskrunner keeps all the pieces of our application running as well as a system to receive commands that run on demand.
 
 ### Choice: [Gulp](http://gulpjs.com)
 
 Research and [testing](https://github.com/scottnath/gulp-vs-grunt) had Gulp beat out [Grunt](http://gruntjs.com), proving to be 5 times faster at running tasks.
+
+### Gulp Plugins to research:
+* [gulp-util](https://github.com/gulpjs/gulp-util)
+* [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
 
 ---
 

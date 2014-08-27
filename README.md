@@ -37,7 +37,16 @@ After feedback, I will make a Yeoman Generator of the final app systems
 1. I see people using a "partials" folder for templates, sometimes for pages. Does that belong in this structure?
 2. Is there a way to compile Compass/SASS using Node instead of Ruby?
 3. I have put computed styles into /styles. This does not seem ideal as it doesn't follow the folder structure.
-4. I wanted to have the styles.scss file live in the main folder, but it caused errors
+
+
+## Bugs
+1. I wanted to have the styles.scss file live in the main folder, but it caused errors
+    * to do: decide .scss final locations (this isn't talked about in Google's structure doc)
+    * can finding sub-folder's .scss be done dynamically?
+2. When trying to gulp-watch eslint I'm getting ```Error: EMFILE, too many open files```
+    * ulimit didn't help
+    * followed instructions here: http://unix.stackexchange.com/questions/108174/how-to-persist-ulimit-settings-in-osx-mavericks
+        * worked, but showed new errors: 2014-08-27 17:08 gulp[581] (CarbonCore.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-21)
 
 ## Lofty Goals
 * Pull in full-angular components via Package Manager
