@@ -36,20 +36,27 @@ After feedback, I will make a Yeoman Generator of the final app systems
 ## Questions/Concerns I have
 1. I see people using a "partials" folder for templates, sometimes for pages. Does that belong in this structure?
 2. Is there a way to compile Compass/SASS using Node instead of Ruby?
-3. I have put computed styles into /styles. This does not seem ideal as it doesn't follow the folder structure.
+3. I have put computed styles into /styles. This does not seem ideal as it doesn't follow the overall folder structure.
 
 
 ## Bugs
 1. I wanted to have the styles.scss file live in the main folder, but it caused errors
     * to do: decide .scss final locations (this isn't talked about in Google's structure doc)
     * can finding sub-folder's .scss be done dynamically?
-2. When trying to gulp-watch eslint I'm getting ```Error: EMFILE, too many open files```
-    * ulimit didn't help
+2. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```
+    * most tubes pointed to a problem with the open-file limit of 256 files on macs
+    * terminal commands to increase this limit by changing ulimit did not help
     * followed instructions here: http://unix.stackexchange.com/questions/108174/how-to-persist-ulimit-settings-in-osx-mavericks
-        * worked, but showed new errors: 2014-08-27 17:08 gulp[581] (CarbonCore.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-21)
+        * instructions said to change /etc/launchd.conf and /etc/profile
+        * this stopped the EMFILE error which was killing gulp, but showed new errors: 
+        ```2014-08-27 17:08 gulp [581] (CarbonCore.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-21)```
+        * the carboncore error was repeated in the terminal almost 500 times after running ```gulp```
+    * [Further investigation](https://github.com/floatdrop/gulp-watch/issues/7) showed that this was an issue with using Gulp's built-in gulp-watch, so I installed [gulp-watch](https://www.npmjs.org/package/gulp-watch) instead
+        * this cleared the carboncore error completely
+        * I removed the changes to *both* /etc/launchd.conf and /etc/profile, restarted my machine and both original errors (EMFILE and CarbonCore) did not return
 
 ## Lofty Goals
-* Pull in full-angular components via Package Manager
+* Pull in complete angular components via Package Manager
 * Pull in html patterns via Package Manager and create directives from them
 * Choice for pulled-in items
     * Use as is, allowing fresh pull-requests

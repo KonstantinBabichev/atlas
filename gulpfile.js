@@ -4,6 +4,7 @@ var notify = require('gulp-notify');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var eslint = require('gulp-eslint');
+var watch = require('gulp-watch');
 
 var sourcePaths = {
   styles: ['sass/*.scss'], // watches for scss files in ANY folder
@@ -43,17 +44,25 @@ gulp.task('serve', ['compass'], function () {
   });
 });
 
+// gulp.task('eslint', function () {
+//   gulp.src(sourcePaths.scripts)
+//     .pipe(eslint())
+//     .pipe(eslint.format());
+// });
+
 gulp.task('eslint', function () {
   gulp.src(sourcePaths.scripts)
-    .pipe(eslint())
-    .pipe(eslint.format());
+    .pipe(watch(function(files) {
+      return files.pipe(eslint())
+        .pipe(eslint.format());
+    }));
 });
 
 gulp.task('watch', function(){
   gulp.watch(sourcePaths.styles, ['compass']);
-  gulp.watch(sourcePaths.scripts, ['eslint']);
+  //gulp.watch(sourcePaths.scripts, ['eslint']);
 });
 
 gulp.task('build', ['compass']);
 
-gulp.task('default', ['build', 'serve', 'watch']);
+gulp.task('default', ['build', 'serve', 'eslint', 'watch']);
