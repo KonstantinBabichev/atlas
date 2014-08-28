@@ -1,4 +1,4 @@
-# Tech Solutions for FE
+# Architecture Needs and Solutions for the Atlas Application
 
 ---
 

@@ -38,12 +38,32 @@ After feedback, I will make a Yeoman Generator of the final app systems
 2. Is there a way to compile Compass/SASS using Node instead of Ruby?
 3. I have put computed styles into /styles. This does not seem ideal as it doesn't follow the overall folder structure.
 
+## Running to do (not in order)
+1. Document details on why Angular was chosen in [Tech Solutions for FE](architecture-needs-and-solutions.md)
+2. research:
+    * [gulp-util](https://github.com/gulpjs/gulp-util)
+    * [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
+3. CSS Linting
+4. Unit Testing
+5. E2E Testing
+6. Distribution build system
+    1. Dist cleaning
+    2. Image Minification
+    3. Concat
+    4. JS Minification
+    5. CSS Minification
+    6. File revisioning
+    7. Font conversion/Icon conversion
+    8. General speed improvements
 
-## Bugs
+## Bugs to fix
 1. I wanted to have the styles.scss file live in the main folder, but it caused errors
     * to do: decide .scss final locations (this isn't talked about in Google's structure doc)
     * can finding sub-folder's .scss be done dynamically?
-2. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```
+2. gulp 'serve' needs to be written better, getting an eslint error
+
+## Bugs that were fixed, and how
+1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```
     * most tubes pointed to a problem with the open-file limit of 256 files on macs
     * terminal commands to increase this limit by changing ulimit did not help
     * followed instructions here: http://unix.stackexchange.com/questions/108174/how-to-persist-ulimit-settings-in-osx-mavericks
