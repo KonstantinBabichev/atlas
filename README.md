@@ -18,13 +18,23 @@ They are long and varied. For full details, please see this document:
 
 ## Requirements
 
-* Ruby
+### You will need to install these
+* [Ruby](http://www.ruby-lang.org/en/downloads/)
+* [compass/sass](http://compass-style.org/install/) globally installed
+* [node.js](http://nodejs.org)
+
+### Node-Installed items:
 * bower
-* node.js
+* gulp
+
+### Install Gulp/Bower to your machine
+```npm install -g gulp bower```
 
 ## Installation
 
-### Install Bower/Node Components
+First, download this repo and ```cd``` into its directory
+
+### Install Bower/Node Components in repo
 ```bower install && npm install```
 
 ### Start Server
