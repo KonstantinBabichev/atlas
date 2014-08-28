@@ -39,7 +39,7 @@ First, download this repo and ```cd``` into its directory
 
 ### Start Server
 
-```bower install && npm install```
+```gulp ```
 
 
 ---
