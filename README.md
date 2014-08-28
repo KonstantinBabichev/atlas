@@ -38,7 +38,10 @@ First, download this repo and ```cd``` into its directory
 ```bower install && npm install```
 
 ### Start Server
+
 ```gulp```
+
+---
 
 ## What happens next
 After feedback, I will make a Yeoman Generator of the final app systems
