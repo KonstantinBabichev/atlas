@@ -22,7 +22,15 @@ Third-Party Modules: ~800 [ngmodules](http://ngmodules.org)
 Ember has some nice built in features like a router and it's own data layer. It has underdone a bunch of changes since it's inception, which makes a lot of online examples and answer-responses out-of-date and wrong. It was built for performance and it uses handlebars for templating - which gums up the HTML source code adds too much weight to the file size. It should be a contender, but it simply does not have a solid enough developer community for us to get the kind of open-source benefit we need. A search for "emberjs" results in 1.6 million google hits.
 Third-Party Modules: ~20 [emberaddons](http://emberaddons.com/)
 
-### Choice: 
+### Choice: [AngularJS](https://angularjs.org)
+#### Features
+* Massive community
+* Open source and backed by Google
+* Extends HTML allowing definition of new elements, behaviors and attributes
+    * this will allow non-js developers to understand the html Angular uses
+* Two-way data binding
+* Written with code-testing in mind
+* Multiple unit testing options available
 
 ---
 
