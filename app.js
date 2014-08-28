@@ -27,6 +27,4 @@ angular.module('angularApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
             this.$apply(fn);
         }
     };
-
-})
-;
+});

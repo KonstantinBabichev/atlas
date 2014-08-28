@@ -18,7 +18,7 @@ var distPaths = {
 var server = {
   host: 'localhost',
   port: '8001'
-}
+};
 
 
 gulp.task('compass', function() {
