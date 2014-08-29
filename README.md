@@ -69,12 +69,14 @@ After feedback, I will make a Yeoman Generator of the final app systems
     6. File revisioning
     7. Font conversion/Icon conversion
     8. General speed improvements
+7. Compass doesn't seem to be compiling correctly
 
 ## Bugs to fix
 1. I wanted to have the styles.scss file live in the main folder, but it caused errors
     * to do: decide .scss final locations (this isn't talked about in Google's structure doc)
     * can finding sub-folder's .scss be done dynamically?
 2. gulp 'serve' needs to be written better, getting an eslint error
+3. Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)?
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```

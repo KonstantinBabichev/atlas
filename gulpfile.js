@@ -7,7 +7,7 @@ var eslint = require('gulp-eslint');
 var watch = require('gulp-watch');
 
 var sourcePaths = {
-  styles: ['sass/*.scss'], // watches for scss files in ANY folder
+  styles: ['!node_modules/**','!bower_components/**','**/*.scss'],
   scripts: ['!node_modules/**','!bower_components/**','!**/*_test.js','**/*.js','app.js']
 };
 
