@@ -57,6 +57,7 @@ After feedback, I will make a Yeoman Generator of the final app systems
 2. research:
     * [gulp-util](https://github.com/gulpjs/gulp-util)
     * [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
+        * [glp example](http://andy-carter.com/blog/automatically-load-gulp-plugins-with-gulp-load-plugins)
 ~~3. CSS Linting~~
 4. Unit Testing
 5. E2E Testing

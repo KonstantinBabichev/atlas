@@ -209,7 +209,7 @@ Every time a build is created, we need to wipe out all the files that were creat
 <a id="file-concat"></a>
 ## File Concatenation
 
-We need to combine multiple files into single files to cut down on server calls.
+We need to combine multiple files into single files to cut down on server calls. This is going to require different tasks for concatting each different section of files - our bower components, separate javascripts, and css files.
 
 ### Options
 * [gulp-concat-util](https://github.com/mgcrea/gulp-concat-util)

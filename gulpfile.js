@@ -8,12 +8,12 @@ var csslint = require('gulp-csslint');
 var watch = require('gulp-watch');
 
 var sourcePaths = {
-  styles: ['!node_modules/**','!bower_components/**','**/*.scss'],
-  scripts: ['!node_modules/**','!bower_components/**','!**/*_test.js','**/*.js','app.js']
+  styles: ['!app/bower_components/**','app/**/*.scss'],
+  scripts: ['!node_modules/**','!app/bower_components/**','!app/**/*_test.js','app/**/*.js','app/app.js']
 };
 
 var distPaths = {
-  styles: 'styles'
+  styles: 'app/styles'
 };
 
 var server = {
@@ -25,17 +25,19 @@ var server = {
 gulp.task('compass', function() {
   gulp.src(sourcePaths.styles)
   .pipe(compass({
-    css: 'styles',
-    sass: 'sass',
+    css: 'app/styles',
+    sass: 'app/sass',
     comments: false
   }))
   .pipe(gulp.dest(distPaths.styles));
 });
 
 gulp.task('serve', ['compass'], function () {
+
+  console.log('------------------>>>> firing server  <<<<-----------------------');
   browserSync.init(null, {
     server: {
-      baseDir: '.'
+      baseDir: 'app'
     },
     debugInfo: false,
     open: true,
