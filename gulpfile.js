@@ -14,13 +14,18 @@ var errorLog  = chalk.red.bold,
   hintLog   = chalk.blue,
   changeLog = chalk.red;
 
+var onError = function (err) {
+  beep([0, 0, 0]);
+  gutil.log(gutil.colors.green(err));
+};
+
 var SETTINGS = {
   src: {
     app: 'app/', // dev application folder
     css: 'app/styles/', // compiled css
     styles: [ // SASS files
       '!app/bower_components/**', // ignore any scss files in bower-ingested folders
-      'app/**/*.scss'], // finds all .scss files in their folders
+      'app/styles.scss'], // calls main style sass file, which imports the others
     scripts: [ // Application javascripts
       '!app/bower_components/**', // ignore bower-ingested scripts
       '!app/**/*_test.js', // ignore our test scripts (for now)
@@ -65,14 +70,19 @@ var server = {
   port: '8001'
 };
 
-
 gulp.task('compass', function() {
+  console.log('-------------------------------------------------- Compass .scss conversion');
+
   gulp.src(SETTINGS.src.styles)
   .pipe(gulpPlugins.compass({
     css: 'app/styles',
     sass: 'app',
-    comments: false
+    comments: false,
+    style: 'nested'
   }))
+  .on('error', function(err) {
+    // Would like to catch the error here
+  })
   .pipe(gulp.dest(SETTINGS.src.css));
 });
 
@@ -115,7 +125,7 @@ gulp.task('csslint', function() {
 });
 
 /*============================================================
-=                          Production Build
+= Production Build
 ============================================================*/
 gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css']);
 
@@ -168,9 +178,6 @@ gulp.task('concat:bower', function () {
   return stream;
 });
 
-
-
-// NATH: you are here figuring out js prod conversion
 gulp.task('concat:js', function () {
 
   console.log('-------------------------------------------------- CONCAT :js');
@@ -179,6 +186,16 @@ gulp.task('concat:js', function () {
       .pipe(gulpPlugins.uglify())
       //.pipe(gulpPlugins.if(isProduction, gulpPlugins.uglify()))
       .pipe(gulp.dest(SETTINGS.build.js));
+});
+
+gulp.task('concat:css', ['compass'], function () {
+
+  console.log('-------------------------------------------------- CONCAT :css ');
+  gulp.src([SETTINGS.src.css + '*.css'])
+      .pipe(gulpPlugins.concat('styles.css'))
+      //.pipe(gulpPlugins.if(isProduction, gulpPlugins.minifyCss({keepSpecialComments: '*'})))
+      .pipe(gulpPlugins.minifyCss({keepSpecialComments: '*'}))
+      .pipe(gulp.dest(SETTINGS.build.css));
 });
 
 gulp.task('watch', function(){

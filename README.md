@@ -57,7 +57,7 @@ After feedback, I will make a Yeoman Generator of the final app systems
 2. research:
     * [gulp-util](https://github.com/gulpjs/gulp-util)
     * [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
-        * [glp example](http://andy-carter.com/blog/automatically-load-gulp-plugins-with-gulp-load-plugins)
+        * [gulp example](http://andy-carter.com/blog/automatically-load-gulp-plugins-with-gulp-load-plugins)
 ~~3. CSS Linting~~
 4. Unit Testing
 5. E2E Testing
@@ -73,7 +73,9 @@ After feedback, I will make a Yeoman Generator of the final app systems
 8. Consistent gulp messaging
 9. Consistent in-file notes
 10. Should the DEV app run off of the build?
-11. Add gulp plumber so we don't crash on errors
+11. Add gulp [plumber](https://github.com/floatdrop/gulp-plumber) so we don't crash on errors
+    * [simple-and-awesome-gulp-setup](http://www.kycosoftware.com/blog/article/simple-and-awesome-gulp-setup)
+    * [how-to-basic-tasks-in-gulp-js](http://ilikekillnerds.com/2014/07/how-to-basic-tasks-in-gulp-js/)
 
 ## Bugs to fix
 1. I wanted to have the styles.scss file live in the main folder, but it caused errors
