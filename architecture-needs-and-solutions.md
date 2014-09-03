@@ -1,20 +1,19 @@
 # Architecture Needs and Solutions for the Atlas Application
 
 ## Table of Contents
-  * [Javascript Framework](#javascript-framework)
-  * [Taskrunner](#taskrunner)
-  * [Compass/SASS Compilation](#compass)
-  * [Automatic browser-reload](#browserreload)
-  * [Javascript Linting](#javascript-linting)
-  * [CSS Linting](#css-linting)
+  * &#x2717; [Javascript Framework](#javascript-framework)
+  * &#x2717; [Taskrunner](#taskrunner)
+  * &#x2717; [Compass/SASS Compilation](#compass)
+  * &#x2717; [Automatic browser-reload](#browserreload)
+  * &#x2717; [Javascript Linting](#javascript-linting)
+  * &#x2717; [CSS Linting](#css-linting)
   * [Unit Testing](#unit-testing)
   * [End 2 End Testing](#e2e-testing)
   * [Build Cleaning](#build-cleaning)
   * [Image minification](#image-minification)
-  * [File Concatenation](#file-concat)
-  * [Javascript Production Conversion](#js-prod)
+  * &#x2717; [Javascript Production Conversion](#js-prod)
+  * &#x2717; [CSS Production Conversion](#css-prod)
   * [HTML Optimization](#html-optimization)
-  * [CSS Production Conversion](#css-prod)
   * [Cache buster/Revisio](#revisioning)
   * [HTML->JS Conversion](#html-convert)
   * [General](#general)
@@ -188,6 +187,8 @@ Every time a build is created, we need to wipe out all the files that were creat
 
 ## Choice: [gulp-rimraf](https://github.com/robrich/gulp-rimraf)
 
+Rimraf is the node leader for file removing. Gulp-rimraf is the gulp port of it.
+
 
 ---
 <a id="image-minification"></a>
@@ -203,20 +204,6 @@ Every time a build is created, we need to wipe out all the files that were creat
 * Converts all image types
 * Optimization levels
 * Plugins for image types
-
-
----
-<a id="file-concat"></a>
-## File Concatenation
-
-We need to combine multiple files into single files to cut down on server calls. This is going to require different tasks for concatting each different section of files - our bower components, separate javascripts, and css files.
-
-### Options
-* [gulp-concat-util](https://github.com/mgcrea/gulp-concat-util)
-* [gulp-concat](http://github.com/wearefractal/gulp-concat)
-* [gulp-useref](https://github.com/jonkemp/gulp-useref)
-
-### Choice: *requires more research*
 
 
 ---
@@ -314,7 +301,8 @@ There's actually a ton of these, but since they all essentially do the same thin
 ---
 <a id="inspiration"></a>
 # Open Source tech that provided SO MUCH help to come up with this system
-* [Generator Boom]
+* [Generator Boom](https://github.com/aamirshah/generator-boom) (amazing gulp file)
+* [generator-cg-angular](https://github.com/cgross/generator-cg-angular) (proper file structure)
 ---
 <a id="general"></a>
 # General

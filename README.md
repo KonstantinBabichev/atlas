@@ -62,20 +62,24 @@ After feedback, I will make a Yeoman Generator of the final app systems
 4. Unit Testing
 5. E2E Testing
 6. Distribution build system
-    1. Dist cleaning
+    ~~1. Dist cleaning~~
     2. Image Minification
     ~~3. JS Prod Deploy~~
-    5. CSS Minification
+    ~~5. CSS Minification~~
     6. File revisioning
     7. Font conversion/Icon conversion
     8. General speed improvements
 7. Compass doesn't seem to be compiling correctly
+    * multiple styles for same element are in separate elements in file
 8. Consistent gulp messaging
 9. Consistent in-file notes
-10. Should the DEV app run off of the build?
+10. Should the DEV app run off of the build? Its own build?
 11. Add gulp [plumber](https://github.com/floatdrop/gulp-plumber) so we don't crash on errors
     * [simple-and-awesome-gulp-setup](http://www.kycosoftware.com/blog/article/simple-and-awesome-gulp-setup)
     * [how-to-basic-tasks-in-gulp-js](http://ilikekillnerds.com/2014/07/how-to-basic-tasks-in-gulp-js/)
+    * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
+12. research [gulp-task-listing](https://www.npmjs.org/package/gulp-task-listing)
+13. Error sounds/messages
 
 ## Bugs to fix
 1. I wanted to have the styles.scss file live in the main folder, but it caused errors

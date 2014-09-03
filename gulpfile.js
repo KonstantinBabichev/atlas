@@ -81,7 +81,7 @@ gulp.task('compass', function() {
     style: 'nested'
   }))
   .on('error', function(err) {
-    // Would like to catch the error here
+    // Nath: compass errors happen multiple times - need to controll this
   })
   .pipe(gulp.dest(SETTINGS.src.css));
 });
@@ -125,11 +125,58 @@ gulp.task('csslint', function() {
 });
 
 /*============================================================
-= Production Build
+PRODUCTION BUILDING
+============================================================*/
+
+/*============================================================
+=                             Clean                          =
+============================================================*/
+
+var cleanFiles = function (files, logMessage) {
+  console.log('-------------------------------------------------- CLEAN :' + logMessage);
+  gulp.src(files, {read: false})
+    .pipe(gulpPlugins.rimraf({force: true}));
+};
+
+gulp.task('clean', function () {
+  cleanFiles([SETTINGS.build.app], 'all files');
+});
+
+gulp.task('clean:css', function () {
+  cleanFiles([SETTINGS.build.css], 'css');
+});
+
+gulp.task('clean:bower', function () {
+  cleanFiles([SETTINGS.build.bower], 'bower');
+});
+
+gulp.task('clean:js', function () {
+  cleanFiles([SETTINGS.build.js], 'js');
+});
+
+// NATH: you need to turn these on or remove them
+// gulp.task('clean:html', function () {
+//   cleanFiles([SETTINGS.build.templates], 'html');
+// });
+
+// gulp.task('clean:images', function () {
+//   cleanFiles([SETTINGS.build.images], 'images');
+// });
+
+// gulp.task('clean:fonts', function () {
+//   cleanFiles([SETTINGS.build.fonts + '*.*', SETTINGS.build.fonts + '**/*.*'], 'fonts');
+// });
+
+// gulp.task('clean:zip', function () {
+//   cleanFiles(['zip/**/*', '!zip/build-*.zip'], 'zip');
+// });
+
+/*============================================================
+=                             CONCAT                          =
 ============================================================*/
 gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css']);
 
-gulp.task('concat:bower', function () {
+gulp.task('concat:bower', ['clean:bower'], function () {
   console.log('-------------------------------------------------- CONCAT :bower');
 
   // this section uses 'gulp-filter' to find all files of these types:
@@ -178,7 +225,7 @@ gulp.task('concat:bower', function () {
   return stream;
 });
 
-gulp.task('concat:js', function () {
+gulp.task('concat:js', ['clean:js'], function () {
 
   console.log('-------------------------------------------------- CONCAT :js');
   gulp.src(SETTINGS.src.scripts)
@@ -188,7 +235,7 @@ gulp.task('concat:js', function () {
       .pipe(gulp.dest(SETTINGS.build.js));
 });
 
-gulp.task('concat:css', ['compass'], function () {
+gulp.task('concat:css', ['compass','clean:css'], function () {
 
   console.log('-------------------------------------------------- CONCAT :css ');
   gulp.src([SETTINGS.src.css + '*.css'])
@@ -203,6 +250,6 @@ gulp.task('watch', function(){
   //gulp.watch(sourcePaths.scripts, ['eslint']);
 });
 
-gulp.task('build', ['compass']);
+gulp.task('build', ['clean', 'concat']);
 
-gulp.task('default', ['build', 'serve', 'eslint', 'csslint', 'concat:js', 'watch']);
+gulp.task('default', ['build', 'serve', 'eslint', 'csslint', 'watch']);
