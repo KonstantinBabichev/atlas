@@ -48,12 +48,12 @@ After feedback, I will make a Yeoman Generator of the final app system
 1. I see people using a "partials" folder for templates, sometimes for pages. Does that belong in this structure?
 2. Is there a way to compile Compass/SASS using Node instead of Ruby?
 
-## Running to do (not in order)
+## Running to do (not in order, ~~completed items~~)
 1. Document details on why Angular was chosen in [Tech Solutions for FE](architecture-needs-and-solutions.md)
 2. research:
     * [gulp-util](https://github.com/gulpjs/gulp-util)
-    * [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
-        * [gulp example](http://andy-carter.com/blog/automatically-load-gulp-plugins-with-gulp-load-plugins)
+    * ~~[gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)~~
+    * [gulp-task-listing](https://www.npmjs.org/package/gulp-task-listing)
 3. ~~CSS Linting~~
 4. Unit Testing
 5. E2E Testing
@@ -74,7 +74,6 @@ After feedback, I will make a Yeoman Generator of the final app system
     * [simple-and-awesome-gulp-setup](http://www.kycosoftware.com/blog/article/simple-and-awesome-gulp-setup)
     * [how-to-basic-tasks-in-gulp-js](http://ilikekillnerds.com/2014/07/how-to-basic-tasks-in-gulp-js/)
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
-12. research [gulp-task-listing](https://www.npmjs.org/package/gulp-task-listing)
 13. Error sounds/messages
 14. BUG: gulp 'serve' needs to be written better, getting an eslint error
 15. Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
