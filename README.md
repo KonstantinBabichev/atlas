@@ -64,13 +64,16 @@ After feedback, I will make a Yeoman Generator of the final app systems
 6. Distribution build system
     1. Dist cleaning
     2. Image Minification
-    3. Concat
-    4. JS Minification
+    ~~3. JS Prod Deploy~~
     5. CSS Minification
     6. File revisioning
     7. Font conversion/Icon conversion
     8. General speed improvements
 7. Compass doesn't seem to be compiling correctly
+8. Consistent gulp messaging
+9. Consistent in-file notes
+10. Should the DEV app run off of the build?
+11. Add gulp plumber so we don't crash on errors
 
 ## Bugs to fix
 1. I wanted to have the styles.scss file live in the main folder, but it caused errors
@@ -94,6 +97,7 @@ After feedback, I will make a Yeoman Generator of the final app systems
 
 ## Lofty Goals
 * Pull in complete angular components via Package Manager
+    * first test component will be the Object Viewer
 * Pull in html patterns via Package Manager and create directives from them
 * Choice for pulled-in items
     * Use as is, allowing fresh pull-requests
