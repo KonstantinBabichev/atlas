@@ -27,9 +27,6 @@ They are long and varied. For full details, please see this document:
 * bower
 * gulp
 
-### Install Gulp/Bower to your machine
-```npm install -g gulp bower```
-
 ## Installation
 
 First, download this repo and ```cd``` into its directory
@@ -45,12 +42,11 @@ First, download this repo and ```cd``` into its directory
 ---
 
 ## What happens next
-After feedback, I will make a Yeoman Generator of the final app systems
+After feedback, I will make a Yeoman Generator of the final app system
 
 ## Questions/Concerns I have
 1. I see people using a "partials" folder for templates, sometimes for pages. Does that belong in this structure?
 2. Is there a way to compile Compass/SASS using Node instead of Ruby?
-3. I have put computed styles into /styles. This does not seem ideal as it doesn't follow the overall folder structure.
 
 ## Running to do (not in order)
 1. Document details on why Angular was chosen in [Tech Solutions for FE](architecture-needs-and-solutions.md)
@@ -58,14 +54,14 @@ After feedback, I will make a Yeoman Generator of the final app systems
     * [gulp-util](https://github.com/gulpjs/gulp-util)
     * [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)
         * [gulp example](http://andy-carter.com/blog/automatically-load-gulp-plugins-with-gulp-load-plugins)
-~~3. CSS Linting~~
+3. ~~CSS Linting~~
 4. Unit Testing
 5. E2E Testing
 6. Distribution build system
-    ~~1. Dist cleaning~~
+    1. ~~Dist cleaning~~
     2. Image Minification
-    ~~3. JS Prod Deploy~~
-    ~~5. CSS Minification~~
+    3. ~~JS Prod Deploy~~
+    5. ~~5. CSS Minification~~
     6. File revisioning
     7. Font conversion/Icon conversion
     8. General speed improvements
