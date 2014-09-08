@@ -32,6 +32,11 @@ var SETTINGS = {
       'app/**/*.js', // finds all app files in their folders
       'app/app.js'], // main application file
     templates: 'app/templates/',
+    html: [
+      '!app/bower_components/**', // ignore bower-ingested
+      '!app/index.html', // ignore main index file
+      'app/**/*.html' // find all other html files
+      ],
     images: 'app/img/',
     fonts: 'app/fonts/',
     bower: 'app/bower_components/'
@@ -41,6 +46,7 @@ var SETTINGS = {
     css: 'build/css/',
     js: 'build/js/',
     templates: 'build/templates/',
+    html: 'build/html',
     images: 'build/img/',
     fonts: 'build/fonts/',
     bower: 'build/bower/' // If you change this, you will have to change in index.html as well.
@@ -92,6 +98,22 @@ gulp.task('serve', ['compass'], function () {
   browserSync.init(null, {
     server: {
       baseDir: 'app'
+    },
+    debugInfo: false,
+    open: true,
+    host: server.host,
+    port: server.port
+  }, function (err, bs) {
+    console.log('Started connect web server on ' + server.host + ':' + server.port);
+  });
+});
+
+gulp.task('serve:prod', function () {
+
+  console.log('------------------>>>> firing server  <<<<-----------------------');
+  browserSync.init(null, {
+    server: {
+      baseDir: 'build'
     },
     debugInfo: false,
     open: true,
@@ -174,7 +196,7 @@ gulp.task('clean:js', function () {
 /*============================================================
 =                             CONCAT                          =
 ============================================================*/
-gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css']);
+gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css', 'html:convert']);
 
 gulp.task('concat:bower', ['clean:bower'], function () {
   console.log('-------------------------------------------------- CONCAT :bower');
@@ -191,7 +213,7 @@ gulp.task('concat:bower', ['clean:bower'], function () {
 
     .pipe(jsFilter)
     .pipe(gulpPlugins.concat('_bower.js'))
-    .pipe(gulpPlugins.uglify())
+    //.pipe(gulpPlugins.uglify())
     //.pipe(gulpPlugins.if(isProduction, gulpPlugins.uglify()))
     .pipe(gulp.dest(SETTINGS.build.bower))
     .pipe(jsFilter.restore())
@@ -230,7 +252,7 @@ gulp.task('concat:js', ['clean:js'], function () {
   console.log('-------------------------------------------------- CONCAT :js');
   gulp.src(SETTINGS.src.scripts)
       .pipe(gulpPlugins.concat('all.js'))
-      .pipe(gulpPlugins.uglify())
+      //.pipe(gulpPlugins.uglify())
       //.pipe(gulpPlugins.if(isProduction, gulpPlugins.uglify()))
       .pipe(gulp.dest(SETTINGS.build.js));
 });
@@ -243,6 +265,24 @@ gulp.task('concat:css', ['compass','clean:css'], function () {
       //.pipe(gulpPlugins.if(isProduction, gulpPlugins.minifyCss({keepSpecialComments: '*'})))
       .pipe(gulpPlugins.minifyCss({keepSpecialComments: '*'}))
       .pipe(gulp.dest(SETTINGS.build.css));
+});
+
+gulp.task('html:convert', function(){
+  gulp.src(SETTINGS.src.html)
+    .pipe(gulpPlugins.minifyHtml())
+    .pipe(gulpPlugins.ngHtml2js({
+      moduleName: function (file) {
+        console.log(file.contents);
+        // var path = file.split('/'),
+        //   folder = path[path.length - 2];
+        // return folder.replace(/-[a-z]/g, function (match) {
+        //   return match.substr(1).toUpperCase();
+        //});
+      }
+    }))
+    .pipe(gulpPlugins.concat("html.min.js"))
+    //.pipe(gulpPlugins.uglify())
+    .pipe(gulp.dest(SETTINGS.build.html));
 });
 
 gulp.task('watch', function(){

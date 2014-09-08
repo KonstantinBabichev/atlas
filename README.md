@@ -49,7 +49,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 2. Is there a way to compile Compass/SASS using Node instead of Ruby?
 
 ## Running to do (not in order, ~~completed items~~)
-1. Document details on why Angular was chosen in [Tech Solutions for FE](architecture-needs-and-solutions.md)
+1. ~~Document details on why Angular was chosen in [Tech Solutions for FE](architecture-needs-and-solutions.md)~~
 2. research:
     * [gulp-util](https://github.com/gulpjs/gulp-util)
     * ~~[gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins)~~
@@ -61,10 +61,11 @@ After feedback, I will make a Yeoman Generator of the final app system
     1. ~~Dist cleaning~~
     2. Image Minification
     3. ~~JS Prod Deploy~~
-    5. ~~CSS Minification~~
+    5. ~~CSS Prod Deploy~~
     6. File revisioning
     7. Font conversion/Icon conversion
     8. General speed improvements
+    9. HTML->JS-Module Conversion (+ html tasks)
 7. Compass doesn't seem to be compiling correctly
     * multiple styles for same element are in separate elements in file
 8. Consistent gulp messaging
@@ -78,6 +79,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 14. BUG: gulp 'serve' needs to be written better, getting an eslint error
 15. Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * this means just adding a component would auto-add the scss file to an import for main styles
+16. 'html:convert' in wrong place (concat), should have a 'prodbuild' task or something
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```

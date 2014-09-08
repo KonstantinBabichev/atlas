@@ -251,7 +251,7 @@ We're going to set up some different functionality for if we're dealing with thi
 <a id="css-prod"></a>
 ## CSS Production Conversion
 
-Tasks needed to complete
+Tasks needed to be performed
 * scss conversion should be run before this task
 * concat all .css files
 * minify single css file
@@ -278,8 +278,6 @@ There's actually a ton of these, but since they all essentially do the same thin
 <a id="html-optimization"></a>
 ## HTML Optimization
 
-## Options
-* [gulp-minify-html](https://github.com/jonathanepollack/gulp-minify-html)
 --- 
 
 ---
@@ -289,9 +287,27 @@ There's actually a ton of these, but since they all essentially do the same thin
 
 ---
 <a id="html-convert"></a>
-## HTML->JS-Module Conversion
-* converts HTML files to Javascript and puts in cache to cut back on html file loading
-* This may belong under “during dev”
+NATH: You are here
+* current issue: external templatecache templates are not being loaded.
+* working in /build/js/all.js
+* trying to pull in /build/html/html.min.js
+    * not working, doesn't seem to be getting templates in at all, but is calling the file in
+    * [http://jsg.azurewebsites.net/angular-template-caching-with-templatecache-and-gulp/](http://jsg.azurewebsites.net/angular-template-caching-with-templatecache-and-gulp/)
+    * [https://github.com/miickel/gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
+    * [http://www.c-sharpcorner.com/UploadFile/2776f9/angularjs-templates-and-templatecache/](http://www.c-sharpcorner.com/UploadFile/2776f9/angularjs-templates-and-templatecache/)
+## HTML Production Conversion
+
+Tasks needed to be performed
+* Gather all html template files, concat together
+* minify
+* convert to Javascript files
+* add to Angular cache
+
+## Options
+* [gulp-minify-html](https://github.com/jonathanepollack/gulp-minify-html)
+* [gulp-ng-html2js](https://github.com/marklagendijk/gulp-ng-html2js)
+* [https://github.com/miickel/gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
+A gulp port of ng-html2js. ng-html2js converts html files into javascript and puts them in modules. This is meant to cut down on http request by not making the system call each individula html file.
 
 ---
 <a id="font-convert"></a>
@@ -300,11 +316,12 @@ There's actually a ton of these, but since they all essentially do the same thin
 
 ---
 <a id="inspiration"></a>
-# Open Source tech that provided SO MUCH help to come up with this system
+## Open Source tech that provided SO MUCH help to come up with this system
+
 * [Generator Boom](https://github.com/aamirshah/generator-boom) (amazing gulp file)
 * [generator-cg-angular](https://github.com/cgross/generator-cg-angular) (proper file structure)
 ---
 <a id="general"></a>
-# General
+## General
 * Don’t re-process un-changed files
 * Stop gulp crashing on errors (Plumber)
