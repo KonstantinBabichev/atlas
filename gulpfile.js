@@ -198,7 +198,7 @@ gulp.task('clean:js', function () {
 /*============================================================
 =                             CONCAT                          =
 ============================================================*/
-gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css', 'html:convert2']);
+gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css', 'html:convert']);
 
 gulp.task('concat:bower', ['clean:bower'], function () {
   console.log('-------------------------------------------------- CONCAT :bower');
@@ -269,43 +269,14 @@ gulp.task('concat:css', ['compass','clean:css'], function () {
       .pipe(gulp.dest(SETTINGS.build.css));
 });
 
-gulp.task('html:convert2', function(){
+gulp.task('html:convert', function(){
   gulp.src(SETTINGS.src.html)
-    //.pipe(gulpPlugins.minifyHtml())
-    // .pipe(gulpPlugins.ngHtml2js({
-    //   moduleName: function (file) {
-    //     console.log(file.contents);
-    //     // var path = file.split('/'),
-    //     //   folder = path[path.length - 2];
-    //     // return folder.replace(/-[a-z]/g, function (match) {
-    //     //   return match.substr(1).toUpperCase();
-    //     //});
-    //   }
-    // }))
+    .pipe(gulpPlugins.minifyHtml())
     .pipe(gulpPlugins.angularTemplatecache({ module:'templatescache', standalone:true }))
-    //.pipe(gulpPlugins.concat("html.min.js"))
     .pipe(gulpPlugins.uglify())
     .pipe(gulp.dest(SETTINGS.build.html));
 });
 
-gulp.task('html:convert', function(){
-  gulp.src(SETTINGS.src.html)
-    .pipe(gulpPlugins.minifyHtml())
-    .pipe(gulpPlugins.ngHtml2js({
-      moduleName: 'testerton'
-      // moduleName: function (file) {
-      //   console.log(file.contents);
-      //   // var path = file.split('/'),
-      //   //   folder = path[path.length - 2];
-      //   // return folder.replace(/-[a-z]/g, function (match) {
-      //   //   return match.substr(1).toUpperCase();
-      //   //});
-      // }
-    }))
-    .pipe(gulpPlugins.concat("html.min.js"))
-    //.pipe(gulpPlugins.uglify())
-    .pipe(gulp.dest(SETTINGS.build.html));
-});
 
 gulp.task('watch', function(){
   gulp.watch(sourcePaths.styles, ['compass']);
