@@ -1,4 +1,4 @@
-# Architecture Needs and Solutions for the Atlas Application
+# Atlas App: Architecture Needs and Solutions
 
 ## Table of Contents
   * &#x2717; [Javascript Framework](#javascript-framework)
@@ -13,9 +13,8 @@
   * [Image minification](#image-minification)
   * &#x2717; [Javascript Production Conversion](#js-prod)
   * &#x2717; [CSS Production Conversion](#css-prod)
-  * [HTML Optimization](#html-optimization)
-  * [Cache buster/Revisio](#revisioning)
-  * [HTML->JS Conversion](#html-convert)
+  * &#x2717; [HTML Production Conversion](#html-convert)
+  * [Cache buster/Revisions](#revisioning)
   * [General](#general)
 
 ---
@@ -275,17 +274,6 @@ There's actually a ton of these, but since they all essentially do the same thin
 3. Minify final css file in build folder
 
 ---
-<a id="html-optimization"></a>
-## HTML Optimization
-
---- 
-
----
-<a id="revisioning"></a>
-## Cache buster/Revision
-* add hash to url for static asset revisioning
-
----
 <a id="html-convert"></a>
 ## HTML Production Conversion
 
@@ -298,15 +286,18 @@ Tasks needed to be performed
 ### Options
 * [gulp-minify-html](https://github.com/jonathanepollack/gulp-minify-html)
 * [gulp-ng-html2js](https://github.com/marklagendijk/gulp-ng-html2js)
-* [https://github.com/miickel/gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
+* [gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
 
 A gulp port of html2js. ng-html2js converts html files into javascript and puts them in modules. This is meant to cut down on http request by not making the system call each individula html file. *gulp-angular-templatecache* performs the same function, with the added bonus that it will create a *single* module, which can then easily be added as a dependancy of our main app - in the case of the prototype that's the main angularApp module with config routing.
 
-### Choice: [https://github.com/miickel/gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
+### Choice: [gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
 
-This app doesn't have build in minification, but since we already have uglify ready to use it won't cost us to have that job done by another script. Extensive testing proved having GAT produce a single module worked without bugs.
+This app doesn't have built-in minification, but extensive testing proved that having GAT produce a single module worked without the bugs we ran into with nb-html2js.
 
-**Note on html conversion in this app:** The testing that was required to get our templates into our app's cache required a re-configuration of how we run our server. I will now set the server up to point to the final build instead.
+---
+<a id="revisioning"></a>
+## Cache buster/Revision
+* add hash to url for static asset revisioning
 
 ---
 <a id="font-convert"></a>
@@ -317,8 +308,9 @@ This app doesn't have build in minification, but since we already have uglify re
 <a id="inspiration"></a>
 ## Open Source tech that provided SO MUCH help to come up with this system
 
-* [Generator Boom](https://github.com/aamirshah/generator-boom) (amazing gulp file)
-* [generator-cg-angular](https://github.com/cgross/generator-cg-angular) (proper file structure)
+* [Generator Boom](https://github.com/aamirshah/generator-boom) with an amazing gulp file
+* [cg-angular](https://github.com/cgross/generator-cg-angular) which shows off the Google-Approved file strucuture 
+
 ---
 <a id="general"></a>
 ## General
