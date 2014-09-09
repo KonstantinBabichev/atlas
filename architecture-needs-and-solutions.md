@@ -287,14 +287,6 @@ There's actually a ton of these, but since they all essentially do the same thin
 
 ---
 <a id="html-convert"></a>
-NATH: You are here
-* current issue: external templatecache templates are not being loaded.
-* working in /build/js/all.js
-* trying to pull in /build/html/html.min.js
-    * not working, doesn't seem to be getting templates in at all, but is calling the file in
-    * [http://jsg.azurewebsites.net/angular-template-caching-with-templatecache-and-gulp/](http://jsg.azurewebsites.net/angular-template-caching-with-templatecache-and-gulp/)
-    * [https://github.com/miickel/gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
-    * [http://www.c-sharpcorner.com/UploadFile/2776f9/angularjs-templates-and-templatecache/](http://www.c-sharpcorner.com/UploadFile/2776f9/angularjs-templates-and-templatecache/)
 ## HTML Production Conversion
 
 Tasks needed to be performed
@@ -303,11 +295,18 @@ Tasks needed to be performed
 * convert to Javascript files
 * add to Angular cache
 
-## Options
+### Options
 * [gulp-minify-html](https://github.com/jonathanepollack/gulp-minify-html)
 * [gulp-ng-html2js](https://github.com/marklagendijk/gulp-ng-html2js)
 * [https://github.com/miickel/gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
-A gulp port of ng-html2js. ng-html2js converts html files into javascript and puts them in modules. This is meant to cut down on http request by not making the system call each individula html file.
+
+A gulp port of html2js. ng-html2js converts html files into javascript and puts them in modules. This is meant to cut down on http request by not making the system call each individula html file. *gulp-angular-templatecache* performs the same function, with the added bonus that it will create a *single* module, which can then easily be added as a dependancy of our main app - in the case of the prototype that's the main angularApp module with config routing.
+
+### Choice: [https://github.com/miickel/gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
+
+This app doesn't have build in minification, but since we already have uglify ready to use it won't cost us to have that job done by another script. Extensive testing proved having GAT produce a single module worked without bugs.
+
+**Note on html conversion in this app:** The testing that was required to get our templates into our app's cache required a re-configuration of how we run our server. I will now set the server up to point to the final build instead.
 
 ---
 <a id="font-convert"></a>

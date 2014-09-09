@@ -80,6 +80,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 15. Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * this means just adding a component would auto-add the scss file to an import for main styles
 16. 'html:convert' in wrong place (concat), should have a 'prodbuild' task or something
+17. $templatecache cannot be called inside of the routing config as .runs are compiled by angular after .configs
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```

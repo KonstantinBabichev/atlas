@@ -29,12 +29,14 @@ var SETTINGS = {
     scripts: [ // Application javascripts
       '!app/bower_components/**', // ignore bower-ingested scripts
       '!app/**/*_test.js', // ignore our test scripts (for now)
+      '!app/html/**', // NATH: This is temporary for testing - remove
       'app/**/*.js', // finds all app files in their folders
       'app/app.js'], // main application file
     templates: 'app/templates/',
     html: [
       '!app/bower_components/**', // ignore bower-ingested
       '!app/index.html', // ignore main index file
+      '!app/html/**', // NATH: This is temporary for testing - remove
       'app/**/*.html' // find all other html files
       ],
     images: 'app/img/',
@@ -196,7 +198,7 @@ gulp.task('clean:js', function () {
 /*============================================================
 =                             CONCAT                          =
 ============================================================*/
-gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css', 'html:convert']);
+gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css', 'html:convert2']);
 
 gulp.task('concat:bower', ['clean:bower'], function () {
   console.log('-------------------------------------------------- CONCAT :bower');
@@ -267,18 +269,38 @@ gulp.task('concat:css', ['compass','clean:css'], function () {
       .pipe(gulp.dest(SETTINGS.build.css));
 });
 
+gulp.task('html:convert2', function(){
+  gulp.src(SETTINGS.src.html)
+    //.pipe(gulpPlugins.minifyHtml())
+    // .pipe(gulpPlugins.ngHtml2js({
+    //   moduleName: function (file) {
+    //     console.log(file.contents);
+    //     // var path = file.split('/'),
+    //     //   folder = path[path.length - 2];
+    //     // return folder.replace(/-[a-z]/g, function (match) {
+    //     //   return match.substr(1).toUpperCase();
+    //     //});
+    //   }
+    // }))
+    .pipe(gulpPlugins.angularTemplatecache({ module:'templatescache', standalone:true }))
+    //.pipe(gulpPlugins.concat("html.min.js"))
+    .pipe(gulpPlugins.uglify())
+    .pipe(gulp.dest(SETTINGS.build.html));
+});
+
 gulp.task('html:convert', function(){
   gulp.src(SETTINGS.src.html)
     .pipe(gulpPlugins.minifyHtml())
     .pipe(gulpPlugins.ngHtml2js({
-      moduleName: function (file) {
-        console.log(file.contents);
-        // var path = file.split('/'),
-        //   folder = path[path.length - 2];
-        // return folder.replace(/-[a-z]/g, function (match) {
-        //   return match.substr(1).toUpperCase();
-        //});
-      }
+      moduleName: 'testerton'
+      // moduleName: function (file) {
+      //   console.log(file.contents);
+      //   // var path = file.split('/'),
+      //   //   folder = path[path.length - 2];
+      //   // return folder.replace(/-[a-z]/g, function (match) {
+      //   //   return match.substr(1).toUpperCase();
+      //   //});
+      // }
     }))
     .pipe(gulpPlugins.concat("html.min.js"))
     //.pipe(gulpPlugins.uglify())
