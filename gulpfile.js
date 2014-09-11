@@ -1,14 +1,26 @@
 'use strict';
 
+var log = function testerton(msg) {
+  if (msg) {
+    return console.log(msg);
+  }
+}
 var gulp = require('gulp'),
   chalk = require('chalk'),
   bowerFiles = require('main-bower-files'),
   map = require('map-stream'),
   path = require('path'),
   browserSync = require('browser-sync'),
+  uglifySaveLicense = require('uglify-save-license'),
+  ngAnnotate = require('gulp-ng-annotate'),
   reload = browserSync.reload,
   gulpPlugins = require('gulp-load-plugins')();
-
+/*
+to add:
+var $ = require('gulp-load-plugins')({
+  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
+});
+*/
 // chalk config
 var errorLog  = chalk.red.bold,
   hintLog   = chalk.blue,
@@ -32,6 +44,7 @@ var SETTINGS = {
       '!app/html/**', // NATH: This is temporary for testing - remove
       'app/**/*.js', // finds all app files in their folders
       'app/app.js'], // main application file
+    scriptFolder: 'app/scripts/',
     templates: 'app/templates/',
     html: [
       '!app/bower_components/**', // ignore bower-ingested
@@ -39,6 +52,7 @@ var SETTINGS = {
       '!app/html/**', // NATH: This is temporary for testing - remove
       'app/**/*.html' // find all other html files
       ],
+    htmlMain: 'app/index.html',
     images: 'app/img/',
     fonts: 'app/fonts/',
     bower: 'app/bower_components/'
@@ -49,6 +63,7 @@ var SETTINGS = {
     js: 'build/js/',
     templates: 'build/templates/',
     html: 'build/html',
+    htmlMain: 'build/*.html',
     images: 'build/img/',
     fonts: 'build/fonts/',
     bower: 'build/bower/' // If you change this, you will have to change in index.html as well.
@@ -158,24 +173,27 @@ PRODUCTION BUILDING
 
 var cleanFiles = function (files, logMessage) {
   console.log('-------------------------------------------------- CLEAN :' + logMessage);
-  gulp.src(files, {read: false})
-    .pipe(gulpPlugins.rimraf({force: true}));
+  return gulp.src(files, {read: false}).pipe(gulpPlugins.rimraf({force: true}));
 };
 
 gulp.task('clean', function () {
-  cleanFiles([SETTINGS.build.app], 'all files');
+  return cleanFiles([SETTINGS.build.app], 'all files');
 });
 
 gulp.task('clean:css', function () {
-  cleanFiles([SETTINGS.build.css], 'css');
+  return cleanFiles([SETTINGS.build.css], 'css');
 });
 
 gulp.task('clean:bower', function () {
-  cleanFiles([SETTINGS.build.bower], 'bower');
+  return cleanFiles([SETTINGS.build.bower], 'bower');
 });
 
 gulp.task('clean:js', function () {
-  cleanFiles([SETTINGS.build.js], 'js');
+  return cleanFiles([SETTINGS.build.js], 'js');
+});
+
+gulp.task('clean:html', function () {
+  return cleanFiles([SETTINGS.build.htmlMain], 'html');
 });
 
 // NATH: you need to turn these on or remove them
@@ -198,7 +216,7 @@ gulp.task('clean:js', function () {
 /*============================================================
 =                             CONCAT                          =
 ============================================================*/
-gulp.task('concat', ['concat:bower', 'concat:js', 'concat:css', 'html:convert']);
+gulp.task('concat', ['concat:bower', 'html:convert']);
 
 gulp.task('concat:bower', ['clean:bower'], function () {
   console.log('-------------------------------------------------- CONCAT :bower');
@@ -215,7 +233,7 @@ gulp.task('concat:bower', ['clean:bower'], function () {
 
     .pipe(jsFilter)
     .pipe(gulpPlugins.concat('_bower.js'))
-    //.pipe(gulpPlugins.uglify())
+    .pipe(gulpPlugins.uglify())
     //.pipe(gulpPlugins.if(isProduction, gulpPlugins.uglify()))
     .pipe(gulp.dest(SETTINGS.build.bower))
     .pipe(jsFilter.restore())
@@ -249,40 +267,80 @@ gulp.task('concat:bower', ['clean:bower'], function () {
   return stream;
 });
 
-gulp.task('concat:js', ['clean:js'], function () {
+// NATH: no longer needed, completed by
+// gulp.task('concat:js', ['clean:js'], function () {
 
-  console.log('-------------------------------------------------- CONCAT :js');
-  gulp.src(SETTINGS.src.scripts)
-      .pipe(gulpPlugins.concat('all.js'))
-      //.pipe(gulpPlugins.uglify())
-      //.pipe(gulpPlugins.if(isProduction, gulpPlugins.uglify()))
-      .pipe(gulp.dest(SETTINGS.build.js));
-});
+//   console.log('-------------------------------------------------- CONCAT :js');
+//   gulp.src(SETTINGS.src.scripts)
+//       .pipe(gulpPlugins.concat('all.js'))
+//       //.pipe(gulpPlugins.uglify())
+//       //.pipe(gulpPlugins.if(isProduction, gulpPlugins.uglify()))
+//       .pipe(gulp.dest(SETTINGS.build.js));
+// });
 
-gulp.task('concat:css', ['compass','clean:css'], function () {
+// gulp.task('concat:css', ['compass','clean:css'], function () {
 
-  console.log('-------------------------------------------------- CONCAT :css ');
-  gulp.src([SETTINGS.src.css + '*.css'])
-      .pipe(gulpPlugins.concat('styles.css'))
-      //.pipe(gulpPlugins.if(isProduction, gulpPlugins.minifyCss({keepSpecialComments: '*'})))
-      .pipe(gulpPlugins.minifyCss({keepSpecialComments: '*'}))
-      .pipe(gulp.dest(SETTINGS.build.css));
-});
+//   console.log('-------------------------------------------------- CONCAT :css ');
+//   gulp.src([SETTINGS.src.css + '*.css'])
+//       .pipe(gulpPlugins.concat('styles.css'))
+//       //.pipe(gulpPlugins.if(isProduction, gulpPlugins.minifyCss({keepSpecialComments: '*'})))
+//       .pipe(gulpPlugins.minifyCss({keepSpecialComments: '*'}))
+//       .pipe(gulp.dest(SETTINGS.build.css));
+// });
 
 gulp.task('html:convert', function(){
+  console.log('-------------------------------------------------- BUILD: templatescache ');
   gulp.src(SETTINGS.src.html)
-    .pipe(gulpPlugins.minifyHtml())
+    //.pipe(gulpPlugins.minifyHtml())
     .pipe(gulpPlugins.angularTemplatecache({ module:'templatescache', standalone:true }))
-    .pipe(gulpPlugins.uglify())
-    .pipe(gulp.dest(SETTINGS.build.html));
+    //.pipe(gulpPlugins.uglify())
+    .pipe(gulp.dest(SETTINGS.src.scriptFolder));
+});
+
+
+
+//gulp.task('build:prodhtml', ['clean', 'compass'], function(){
+gulp.task('build:prodhtml', ['clean'], function(){
+
+  var jsFilter = gulpPlugins.filter('**/all-*.js'); // our scripts
+  var cssFilter = gulpPlugins.filter('**/*.css'); // our css
+/*
+should use useref to concat and send-to-build, then call specific tasks (above) to do minification inside of build
+*/
+  console.log('-------------------------------------------------- BUILD: Prod HTML ');
+  var assets = gulpPlugins.useref.assets();
+  return gulp.src(SETTINGS.src.htmlMain)
+    .pipe(assets)
+    .pipe(gulpPlugins.rev())
+
+    // START: Process User-Created (non-bower) javascript files
+    .pipe(jsFilter)
+    .pipe(gulpPlugins.print())
+    .pipe(gulpPlugins.ngAnnotate()) // required to stop minfication from breaking scripts
+    .pipe(gulpPlugins.uglify()) // Uglify2, our minification choice for javascripts
+    .pipe(jsFilter.restore())
+    // END: Process User-Created (non-bower) javascript files
+
+    .pipe(cssFilter)
+    .pipe(gulpPlugins.print())
+    .pipe(gulpPlugins.minifyCss({keepSpecialComments: '*'}))
+    .pipe(cssFilter.restore())
+
+    .pipe(assets.restore())
+    .pipe(gulpPlugins.useref())
+    .pipe(gulpPlugins.revReplace())
+    .pipe(gulp.dest(SETTINGS.build.app));
+
 });
 
 
 gulp.task('watch', function(){
-  gulp.watch(sourcePaths.styles, ['compass']);
+  gulp.watch(SETTINGS.src.styles, ['compass']);
+  gulp.watch(SETTINGS.src.html, ['html:convert']);
   //gulp.watch(sourcePaths.scripts, ['eslint']);
 });
 
 gulp.task('build', ['clean', 'concat']);
 
-gulp.task('default', ['build', 'serve', 'eslint', 'csslint', 'watch']);
+gulp.task('default', ['watch', 'serve', 'eslint', 'csslint']);
+

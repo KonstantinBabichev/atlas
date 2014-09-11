@@ -6,3 +6,9 @@
 body{
   background: blue;
   }
+a{
+  color: pink;
+  &:visited{
+    color: yellow;
+  }
+}

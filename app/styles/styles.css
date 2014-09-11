@@ -18,3 +18,8 @@ body {
 
 body {
   background: blue; }
+
+a {
+  color: pink; }
+  a:visited {
+    color: yellow; }

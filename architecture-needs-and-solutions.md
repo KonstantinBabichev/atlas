@@ -182,11 +182,49 @@ Right now, CSSLint is really the only tool out there. Luckily, it's a good one.
 ---
 <a id="build-cleaning"></a>
 ## Build Cleaning
+NATH: U R HERE
+
+This functionality is going to combine the stuff we've already written and add in the creation of cache/revision versioning. Gonna be a long day.
+
+If you run ```gulp tester``` then you can see it already creates a concat-ed single-vendor file.
+
+1. Filter to get files we need
+1. useref concatenates our assets
+2. Use [gulp-rev](https://github.com/sindresorhus/gulp-rev) to give the files created by useref revisioned names
+3. use [gulp-rev-replace](https://github.com/jamesknelson/gulp-rev-replace) to replace the name in our index.html file to point to the revisioned version
+4. NATH: how to remove old revisioned files?
+
+PROBLEM: templatescache is not currently inside of app.js dependencies. hmm...
+* added it, but would we want to build templates here too? Or on watch?
+* could add a watch, how to add templates?
+
+Other messy code issues:
+* app.js should be scripts/app.js
+* then templates.js could be made automatically and put in scripts/
+* NATH: need to watch all html templates and auto-add to templates.js
+* styles.scss should be in styles/
+* NATH: uglifying bower js is causing an error. 
+	* perhaps you should start by pointing to the .min of any file that has one?
+
+
+
+### Options
+* [gulp-useref](https://github.com/jonkemp/gulp-useref)
+* [gulp-filter](https://github.com/sindresorhus/gulp-filter)
+	* limit to specific files during gulp pipe
+	* example use: minify non-bower scripts only
+
 Every time a build is created, we need to wipe out all the files that were created before and give the system a clean start.
 
-## Choice: [gulp-rimraf](https://github.com/robrich/gulp-rimraf)
+## Options:
+* [gulp-rimraf](https://github.com/robrich/gulp-rimraf)
+	* Rimraf is the node leader for file/folder removing. Gulp-rimraf is the gulp port of it.
+* [gulp-useref](https://github.com/jonkemp/gulp-useref)
+	* Parses build blocks in HTML files to replace references to non-optimized scripts or stylesheets 
 
-Rimraf is the node leader for file removing. Gulp-rimraf is the gulp port of it.
+## Choice: 
+
+
 
 
 ---
@@ -216,20 +254,22 @@ Tasks needed to complete:
 * minify app scripts
 * save new versions to production build/distribution folder
 
-## Options for minification
+### Options for minification
 * [uglifyjs2](https://github.com/mishoo/UglifyJS2)
     * [gulp-uglify](https://github.com/terinjokes/gulp-uglify) is the gulp version of uglifyjs2
     * [gulp-uglifyjs](https://github.com/craigjennings11/gulp-uglifyjs)
 
 The main difference between gulp-uglify and gulp-uglifyjs is that the latter can glob files or pull in an array of files. Nice feature, but that can be handled by other scripts. Removing that extra code makes the former (gulp-uglify) a better choice as the developer is more active and its version of uglifyjs2 is more up-to-date with the latest version.
 
-## Choice: [gulp-uglify](https://github.com/terinjokes/gulp-uglify)
+### Choice: [gulp-uglify](https://github.com/terinjokes/gulp-uglify)
 
-## Processing files
+### Processing files
 
-We're going to set up some different functionality for if we're dealing with third-party scripts (like from Bower) or our own scripts.
+We're going to set up some different functionality for if we're dealing with third-party scripts (like from Bower) or our own scripts. The breakdown happens inside of the main [Build Cleaning](#build-cleaning) task.
 
-### Process for Bower Files
+NATH: you need to change the two sections below for processing to reflect useref use.
+
+#### Process for Bower Files
 
 1. Find all bower files and their dependencies
     * [gulp-filter](https://github.com/sindresorhus/gulp-filter) uses globbing to find all files of the type we need
@@ -237,7 +277,7 @@ We're going to set up some different functionality for if we're dealing with thi
 2. Concat and uglify js files
 3. Concat css, and other assets into build/bower folder
 
-### Process for App Scripts
+#### Process for App Scripts
 1. We create a glob list to point to just our app's script files
     * ignores bower files
     * ignores test files (for now)
@@ -288,7 +328,7 @@ Tasks needed to be performed
 * [gulp-ng-html2js](https://github.com/marklagendijk/gulp-ng-html2js)
 * [gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
 
-A gulp port of html2js. ng-html2js converts html files into javascript and puts them in modules. This is meant to cut down on http request by not making the system call each individula html file. *gulp-angular-templatecache* performs the same function, with the added bonus that it will create a *single* module, which can then easily be added as a dependancy of our main app - in the case of the prototype that's the main angularApp module with config routing.
+ng-html2js converts html files into javascript and puts them in modules. This is meant to cut down on http request by not making the system call each individula html file. *gulp-angular-templatecache* performs the same function, with the added bonus that it will create a *single* module, which can then easily be added as a dependancy of our main app - in the case of the prototype that's the main angularApp module with config routing.
 
 ### Choice: [gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
 
@@ -312,7 +352,16 @@ This app doesn't have built-in minification, but extensive testing proved that h
 * [cg-angular](https://github.com/cgross/generator-cg-angular) which shows off the Google-Approved file strucuture 
 
 ---
+<a id="func"></a>
+## Gulp scripts for added functionality
+
+### [gulp-print](https://www.npmjs.org/package/gulp-print)
+
+gulp-print helps by printing out, in the console, the current list of files being processed by gulp
+
+---
 <a id="general"></a>
 ## General
 * Don’t re-process un-changed files
 * Stop gulp crashing on errors (Plumber)
+* REMOVE unused scripts from package.json
