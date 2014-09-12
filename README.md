@@ -60,7 +60,6 @@ After feedback, I will make a Yeoman Generator of the final app system
 7. Compass doesn't seem to be compiling correctly
     * multiple styles for same element are in separate elements in file
 8. Consistent gulp messaging
-9. Consistent in-file notes
 11. Add gulp [plumber](https://github.com/floatdrop/gulp-plumber) so we don't crash on errors
     * [simple-and-awesome-gulp-setup](http://www.kycosoftware.com/blog/article/simple-and-awesome-gulp-setup)
     * [how-to-basic-tasks-in-gulp-js](http://ilikekillnerds.com/2014/07/how-to-basic-tasks-in-gulp-js/)
@@ -71,6 +70,7 @@ After feedback, I will make a Yeoman Generator of the final app system
     * this means just adding a component would auto-add the scss file to an import for main styles
 16. 'html:convert' in wrong place (concat), should have a 'prodbuild' task or something
 17. simultaneous DEV/PROD servers running at once?
+18. eslint and csslint aren't showing errors in console
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```

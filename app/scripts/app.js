@@ -11,6 +11,10 @@ angular.module('angularApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
         templateUrl: 'login/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/login2', {
+        templateUrl: 'login/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -28,3 +32,4 @@ angular.module('angularApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
         }
     };
 });
+

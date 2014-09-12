@@ -359,9 +359,24 @@ This app doesn't have built-in minification, but extensive testing proved that h
 
 gulp-print helps by printing out, in the console, the current list of files being processed by gulp
 
+### [wiredep](https://github.com/taptapship/wiredep)
+wiredep helps with bower dependencies. For instance, we can use it to automatically add the list of bower files to app/index.html
+
+### [require-dir](https://www.npmjs.org/package/require-dir)
+require-dir can let our system make use of files in a directory. In this case, we're using it to separate out our gulp functionality into different files according to general task groupings that we want gulp to perform (such as the prod build)
+
+### Chalk?
+
+### MAP-STREAM?
+
+### PATH?
+
 ---
 <a id="general"></a>
 ## General
 * Don’t re-process un-changed files
 * Stop gulp crashing on errors (Plumber)
 * REMOVE unused scripts from package.json
+* bower.json resides in the /app directory
+	* the packages managed by bower are for the app, not the Atlas system
+	* moving bower.json here makes the /app folder portable to a new system if needed

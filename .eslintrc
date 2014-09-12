@@ -22,7 +22,7 @@
     "no-debugger": 2,
     "no-caller": 1,
     "semi": 1,
-    "quotes": 0,
+    "quotes": 'single',
     "no-unreachable":2,
     "eol-last":0
   },

@@ -8,7 +8,8 @@ angular.module('angularApp')
         'title': 'AngularJS',
         'url': 'https://angularjs.org/',
         'description': 'HTML enhanced for web apps!',
-        'made up thing': 'filled in'
+        'made up thing': 'filled in',
+        'another thing': "blah test blah "
       },
       {
         'key': 'browsersync',

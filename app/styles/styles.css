@@ -17,9 +17,9 @@ body {
   background-color: black; }
 
 body {
-  background: blue; }
+  background: black !important; }
 
 a {
-  color: pink; }
+  color: pink !important; }
   a:visited {
     color: yellow; }
