@@ -71,6 +71,8 @@ After feedback, I will make a Yeoman Generator of the final app system
 16. 'html:convert' in wrong place (concat), should have a 'prodbuild' task or something
 17. simultaneous DEV/PROD servers running at once?
 18. eslint and csslint aren't showing errors in console
+19. Bower files minification creates bugs
+20. watch all html templates and auto-add to templates.js
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```

@@ -9,13 +9,15 @@
   * &#x2717; [CSS Linting](#css-linting)
   * [Unit Testing](#unit-testing)
   * [End 2 End Testing](#e2e-testing)
-  * [Build Cleaning](#build-cleaning)
+  * &#x2717; [Build Creation](#build-creation)
   * [Image minification](#image-minification)
   * &#x2717; [Javascript Production Conversion](#js-prod)
   * &#x2717; [CSS Production Conversion](#css-prod)
   * &#x2717; [HTML Production Conversion](#html-convert)
-  * [Cache buster/Revisions](#revisioning)
+  * &#x2717; [Cache buster/Revisions](#revisioning)
   * [General](#general)
+  
+*&#x2717; = completed section*
 
 ---
 <a id="javascript-framework"></a>
@@ -180,51 +182,52 @@ Right now, CSSLint is really the only tool out there. Luckily, it's a good one.
 # Distribution creation
 
 ---
-<a id="build-cleaning"></a>
-## Build Cleaning
-NATH: U R HERE
+<a id="build-creation"></a>
+## Build Creation
 
-This functionality is going to combine the stuff we've already written and add in the creation of cache/revision versioning. Gonna be a long day.
+### Task Requirements
+* Clean out all or part of the /build folder
+* Minify css
+* Minify & Concat app javascript
+* Minify JS-based HTML templates
+* Minify & Concat Bower components' parts (scripts and css)
+* Revisioning of each new file
+* Save files to /build folder
+* Create build html which points to /build versions
 
-If you run ```gulp tester``` then you can see it already creates a concat-ed single-vendor file.
+**Note:** some of this functionality is broken down in more detail in the sections below
 
-1. Filter to get files we need
-1. useref concatenates our assets
-2. Use [gulp-rev](https://github.com/sindresorhus/gulp-rev) to give the files created by useref revisioned names
-3. use [gulp-rev-replace](https://github.com/jamesknelson/gulp-rev-replace) to replace the name in our index.html file to point to the revisioned version
-4. NATH: how to remove old revisioned files?
-
-PROBLEM: templatescache is not currently inside of app.js dependencies. hmm...
-* added it, but would we want to build templates here too? Or on watch?
-* could add a watch, how to add templates?
-
-Other messy code issues:
-* app.js should be scripts/app.js
-* then templates.js could be made automatically and put in scripts/
-* NATH: need to watch all html templates and auto-add to templates.js
-* styles.scss should be in styles/
-* NATH: uglifying bower js is causing an error. 
-	* perhaps you should start by pointing to the .min of any file that has one?
-
-
-
-### Options
-* [gulp-useref](https://github.com/jonkemp/gulp-useref)
-* [gulp-filter](https://github.com/sindresorhus/gulp-filter)
-	* limit to specific files during gulp pipe
-	* example use: minify non-bower scripts only
-
-Every time a build is created, we need to wipe out all the files that were created before and give the system a clean start.
-
-## Options:
+### Clean out build folder
 * [gulp-rimraf](https://github.com/robrich/gulp-rimraf)
 	* Rimraf is the node leader for file/folder removing. Gulp-rimraf is the gulp port of it.
+
+### Concatenation
+* CSS: Concatenated when compass is comiled during development
+* JS: [gulp-useref](https://github.com/jonkemp/gulp-useref)
+* HTML: converted to js scripts, see [HTML Production Conversion](#html-convert)
+
+### Minification
+* [CSS Production Conversion](#css-prod)
+* [Javascript Production Conversion](#js-prod)
+* [HTML Production Conversion](#html-convert)
+
+### File Revisioning
+
+see: [Cache buster/Revisions](#revisioning)
+
+### Save new files/create build html
 * [gulp-useref](https://github.com/jonkemp/gulp-useref)
-	* Parses build blocks in HTML files to replace references to non-optimized scripts or stylesheets 
-
-## Choice: 
-
-
+	* Parses build blocks in HTML files to replace references to non-optimized scripts or stylesheets
+	
+### Anatomy of a complete build
+1. Wipe out contents of build folder
+2. Open /app/index.html
+3. Find assets in index.html
+4. Concat if needed
+5. Minify if needed
+6. Save new versions to appropriate folders in /build
+7. Revisioning re-naming of files
+8. Create new index.html, pointing to revisined versions, place in /build
 
 
 ---
@@ -296,7 +299,8 @@ Tasks needed to be performed
 * minify single css file
 
 ### Options: Concat
-* [gulp-concat-css](https://github.com/mariocasciaro/gulp-concat-css)
+~~* [gulp-concat-css](https://github.com/mariocasciaro/gulp-concat-css)~~
+* Concatentation is done by Compass
 
 ### Options: Minify
 * [css-condense](https://github.com/rstacruz/css-condense)
@@ -332,12 +336,25 @@ ng-html2js converts html files into javascript and puts them in modules. This is
 
 ### Choice: [gulp-angular-templatecache](https://github.com/miickel/gulp-angular-templatecache)
 
-This app doesn't have built-in minification, but extensive testing proved that having GAT produce a single module worked without the bugs we ran into with nb-html2js.
+This app doesn't have built-in minification, but extensive testing proved that having GAT produce a single module worked without the bugs we ran into with nb-html2js. Minification is handled by [Javascript Production Conversion](#js-prod) because the html templates are now javascripts.
 
 ---
 <a id="revisioning"></a>
-## Cache buster/Revision
+## File Revisioning 
+
+### Tasks
 * add hash to url for static asset revisioning
+* make sure our build's html file is pointing to the new revision-named file
+
+We use file revisioning to give files unique names to essentially create a cache-buster to get the end user the latest version of our code.
+
+### Options
+* [gulp-rev](https://github.com/sindresorhus/gulp-rev)
+* [gulp-rev-replace](https://github.com/jamesknelson/gulp-rev-replace)
+
+Not really a competition here. We use **gulp-rev** to create unique revision names for the files created by UseRef (see [Build Creation](#build-creation)), then **gulp-rev-replace** to replace the URL inside of our html file to point to the newly revision-named files.
+
+
 
 ---
 <a id="font-convert"></a>
@@ -364,6 +381,10 @@ wiredep helps with bower dependencies. For instance, we can use it to automatica
 
 ### [require-dir](https://www.npmjs.org/package/require-dir)
 require-dir can let our system make use of files in a directory. In this case, we're using it to separate out our gulp functionality into different files according to general task groupings that we want gulp to perform (such as the prod build)
+
+### [gulp-filter](https://github.com/sindresorhus/gulp-filter)
+* limit stream to only specific files for a section of gulp pipe
+* example use: minify only non-bower scripts when making a build with useref
 
 ### Chalk?
 
