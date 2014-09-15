@@ -89,6 +89,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 ## Lofty Goals
 * Pull in complete angular components via Package Manager
     * first test component will be the Object Viewer
+    * need to figure out how to construct the components to match
 * Pull in html patterns via Package Manager and create directives from them
 * Choice for pulled-in items
     * Use as is, allowing fresh pull-requests
