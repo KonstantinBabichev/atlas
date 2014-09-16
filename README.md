@@ -54,10 +54,9 @@ After feedback, I will make a Yeoman Generator of the final app system
 5. E2E Testing
 6. Distribution build system
     2. Image Minification
-    6. File revisioning
     7. Font conversion/Icon conversion
     8. General speed improvements
-7. Compass doesn't seem to be compiling correctly
+7. COMPASS: Compass doesn't seem to be compiling correctly
     * multiple styles for same element are in separate elements in file
 8. Consistent gulp messaging
 11. Add gulp [plumber](https://github.com/floatdrop/gulp-plumber) so we don't crash on errors
@@ -66,13 +65,16 @@ After feedback, I will make a Yeoman Generator of the final app system
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
 13. Error sounds/messages
 14. BUG: gulp 'serve' needs to be written better, getting an eslint error
-15. Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
+15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * this means just adding a component would auto-add the scss file to an import for main styles
+    * started this, in gulp/development.js 'csstest' using gulp-css-globbing
 16. 'html:convert' in wrong place (concat), should have a 'prodbuild' task or something
 17. simultaneous DEV/PROD servers running at once?
 18. eslint and csslint aren't showing errors in console
 19. Bower files minification creates bugs
 20. watch all html templates and auto-add to templates.js
+21. auto-save /build to branch:gh-pages
+22. need to set up browsersync to use IP for multi-devices
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```

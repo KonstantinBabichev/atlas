@@ -39,11 +39,11 @@ global.SETTINGS = {
     css: 'app/styles/', // compiled css
     styles: [ // SASS files
       '!app/bower_components/**', // ignore any scss files in bower-ingested folders
+      'app/**/*.scss',
       'app/styles/styles.scss'], // calls main style sass file, which imports the others
     scripts: [ // Application javascripts
       '!app/bower_components/**', // ignore bower-ingested scripts
       '!app/**/*_test.js', // ignore our test scripts (for now)
-      '!app/html/**', // NATH: This is temporary for testing - remove
       'app/**/*.js', // finds all app files in their folders
       'app/app.js'], // main application file
     scriptFolder: 'app/scripts/',
@@ -51,7 +51,6 @@ global.SETTINGS = {
     html: [
       '!app/bower_components/**', // ignore bower-ingested
       '!app/index.html', // ignore main index file
-      '!app/html/**', // NATH: This is temporary for testing - remove
       'app/**/*.html' // find all other html files
       ],
     htmlMain: 'app/index.html',

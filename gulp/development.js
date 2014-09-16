@@ -3,6 +3,21 @@
 /*********************************************
 COMPASS .scss COMPILATION
 */
+gulp.task('scss:globbing', function() {
+  console.log('-------------------------------------------------- csstest');
+  var cssFilter = $.filter('**/*.css'); // our css
+  return gulp.src(SETTINGS.src.css + 'styles.scss')
+  .pipe($.print())
+  //.pipe(cssFilter)
+  .pipe($.cssGlobbing({
+    extensions: ['.css', '.scss'],
+    ignoreFolders: ['../styles']
+  }))
+  //.pipe(cssFilter.restore())
+  .pipe(gulp.dest(SETTINGS.src.css));
+});
+//NATH: add css lint to this section
+//NATH: ['scss:globbing'] can be added once my ignoreFolders repair is in place
 gulp.task('compass', function() {
   console.log('-------------------------------------------------- DEVELOPMENT: Compass .scss conversion');
 
@@ -10,9 +25,11 @@ gulp.task('compass', function() {
   .pipe($.compass({
     css: 'app/styles',
     sass: 'app/styles',
-    comments: false,
-    style: 'nested'
+    comments: true,
+    style: 'nested',
+    logging: true
   }))
+  .pipe($.print())
   .on('error', function(err) {
     // Nath: compass errors happen multiple times - need to controll this
   })

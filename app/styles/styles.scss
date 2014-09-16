@@ -1,13 +1,13 @@
-@import '../components/login-form/login-form';
-@import '../components/object-viewer/object-viewer';
-@import '../login/login';
-@import '../main/main';
+@import "compass/reset";
+@import "compass/css3";
+
+@import '../**/*.scss';
 
 body{
   background: black !important;
   }
 a{
-  color: pink !important;
+  color: light blue !important;
   &:visited{
     color: yellow;
   }
