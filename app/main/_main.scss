@@ -1,3 +1,18 @@
 body{
 	background-color: black;
 }
+
+.nav--MAIN{
+  padding: .3em;
+  border-bottom: 1px solid white;
+  overflow: hidden;
+  margin-bottom: .4em;
+  font-size: .8em;
+  li{
+    float: left;
+    padding: 0 1.5em 0 0;
+  }
+  a{
+    text-decoration: none;
+  }
+}

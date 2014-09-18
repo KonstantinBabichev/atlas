@@ -1,4 +1,3 @@
-/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -19,79 +18,76 @@ time, mark, audio, video {
   font-size: 100%;
   vertical-align: baseline; }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1; }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none; }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle; }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none; }
-  /* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
   q:before, q:after, blockquote:before, blockquote:after {
     content: "";
     content: none; }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none; }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
-/* line 1, ../components/login-form/_login-form.scss */
+/* begin app scss files */
 body {
   font-size: 1.4em; }
 
-/* line 1, ../components/object-viewer/_object-viewer.scss */
 .object--MAIN {
   margin: .5em 0;
   padding: .5em;
   border: 1px solid white; }
 
-/* line 6, ../components/object-viewer/_object-viewer.scss */
 .object--property {
   padding: 0;
   margin: 0; }
 
-/* line 10, ../components/object-viewer/_object-viewer.scss */
-.object--key {
-  font-weight: bold; }
-
-/* line 13, ../components/object-viewer/_object-viewer.scss */
 .object--value {
-  padding-left: 1em; }
+  padding-left: 1em;
+  font-style: italic; }
 
-/* line 1, ../login/_login.scss */
+.show {
+  padding: .3em; }
+
 body {
   color: white; }
 
-/* line 1, ../main/_main.scss */
 body {
   background-color: black; }
 
-/* line 8, styles.scss */
-body {
-  background: black !important; }
+.nav--MAIN {
+  padding: .3em;
+  border-bottom: 1px solid white;
+  overflow: hidden;
+  margin-bottom: .4em;
+  font-size: .8em; }
+  .nav--MAIN li {
+    float: left;
+    padding: 0 1.5em 0 0; }
+  .nav--MAIN a {
+    text-decoration: none; }
 
-/* line 11, styles.scss */
+/* end app scss files */
+body {
+  background: red; }
+
 a {
   color: light blue !important; }
-  /* line 13, styles.scss */
   a:visited {
     color: yellow; }

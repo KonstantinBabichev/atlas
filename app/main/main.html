@@ -1,7 +1,10 @@
-<h1>MAIN: Home Page Land</h1>
+<h1>MAIN: Home Page</h1>
 
 <h2>An Object on the $scope:</h2>
 
 <div ng-repeat="object in scopedObject">
-  <object-viewer></object-viewer>
+  <object-viewer object="object"></object-viewer>
 </div>
+
+<h3>Raw Object View</h3>
+{{scopedObject}}

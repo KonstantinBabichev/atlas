@@ -15,6 +15,19 @@ angular.module('angularApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
         templateUrl: 'login/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/:a', {
+        templateUrl: 'content-type/content-type.html',
+        controller: 'ContentTypeCtrl'
+      })
+      .when('/:a/:contentItem', {
+        templateUrl: 'content-item/content-item.html',
+        controller: 'ContentItemCtrl',
+        resolve: {
+          contentItem: function(Restangular, $route){
+            return Restangular.one($route.current.params.a, $route.current.params.contentItem).get();
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

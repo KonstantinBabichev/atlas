@@ -5,3 +5,4 @@ styles/*
 .sass-cache
 build/
 npm-debug.log
+local-only

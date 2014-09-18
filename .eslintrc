@@ -1,6 +1,6 @@
 {
   "rules": {
-    "no-alert": 0,
+    "no-alert": 1,
     "no-bitwise": 0,
     "camelcase": 1,
     "curly": 1,
@@ -22,7 +22,7 @@
     "no-debugger": 2,
     "no-caller": 1,
     "semi": 1,
-    "quotes": 'single',
+    "quotes": [1, "single"],
     "no-unreachable":2,
     "eol-last":0
   },

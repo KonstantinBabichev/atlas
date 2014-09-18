@@ -75,6 +75,8 @@ After feedback, I will make a Yeoman Generator of the final app system
 20. watch all html templates and auto-add to templates.js
 21. auto-save /build to branch:gh-pages
 22. need to set up browsersync to use IP for multi-devices
+23. upgrade csslint to scss-lint: https://github.com/causes/scss-lint, https://github.com/juanfran/gulp-scss-lint
+24. watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```

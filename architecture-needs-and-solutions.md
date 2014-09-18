@@ -359,14 +359,7 @@ Not really a competition here. We use **gulp-rev** to create unique revision nam
 ---
 <a id="font-convert"></a>
 ## Convert fonts/icon fonts/small images to base64 and put in css
-* reduces calls to the server
-
----
-<a id="inspiration"></a>
-## Open Source tech that provided SO MUCH help to come up with this system
-
-* [Generator Boom](https://github.com/aamirshah/generator-boom) with an amazing gulp file
-* [cg-angular](https://github.com/cgross/generator-cg-angular) which shows off the Google-Approved file strucuture 
+* reduces calls to the server 
 
 ---
 <a id="func"></a>
@@ -391,6 +384,14 @@ require-dir can let our system make use of files in a directory. In this case, w
 ### MAP-STREAM?
 
 ### PATH?
+
+---
+<a id="inspiration"></a>
+## Open Source tech that provided SO MUCH help to come up with this system
+
+* [Generator Boom](https://github.com/aamirshah/generator-boom) with an amazing gulp file
+* [cg-angular](https://github.com/cgross/generator-cg-angular) which shows off the Google-Approved file strucuture
+* [gulp-angular](https://github.com/Swiip/generator-gulp-angular) which breaks apart the gulp file
 
 ---
 <a id="general"></a>

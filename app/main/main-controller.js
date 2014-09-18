@@ -2,6 +2,7 @@
 
 angular.module('angularApp')
   .controller('MainCtrl', function ($scope) {
+    var tester = "a test again";
     $scope.scopedObject = [
       {
         'key': 'angular',
@@ -9,7 +10,8 @@ angular.module('angularApp')
         'url': 'https://angularjs.org/',
         'description': 'HTML enhanced for web apps!',
         'made up thing': 'filled in',
-        'another thing': "blah test blah "
+        'an array': ['arrayItem1','arrayItem2','arrayItem1'],
+        'an object': {'objectKey1':'objectValue1','objectKey2':'objectValue2'}
       },
       {
         'key': 'browsersync',

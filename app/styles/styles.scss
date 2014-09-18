@@ -1,13 +1,21 @@
 @import "compass/reset";
 @import "compass/css3";
 
-@import '../**/*.scss';
+/* begin app scss files */
+@import '../components/login-form/_login-form.scss';
+@import '../components/object-viewer/_object-viewer.scss';
+@import '../content-item/_content-item.scss';
+@import '../content-type/_content-type.scss';
+@import '../login/_login.scss';
+@import '../main/_main.scss';
+
+/* end app scss files */
 
 body{
-  background: black !important;
+  background: black;
   }
 a{
-  color: light blue !important;
+  color: light blue;
   &:visited{
     color: yellow;
   }
