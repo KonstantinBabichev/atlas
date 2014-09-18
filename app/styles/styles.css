@@ -45,7 +45,6 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
-/* begin app scss files */
 body {
   font-size: 1.4em; }
 
@@ -72,18 +71,17 @@ body {
   background-color: black; }
 
 .nav--MAIN {
-  padding: .3em;
   border-bottom: 1px solid white;
+  font-size: .8em;
+  padding: .3em;
   overflow: hidden;
-  margin-bottom: .4em;
-  font-size: .8em; }
+  margin-bottom: .4em; }
   .nav--MAIN li {
     float: left;
     padding: 0 1.5em 0 0; }
   .nav--MAIN a {
     text-decoration: none; }
 
-/* end app scss files */
 body {
   background: black; }
 
