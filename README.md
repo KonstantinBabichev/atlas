@@ -9,12 +9,13 @@ I need an angular application for my job. I'm coming up with the best overall st
 ## What are those needs?
 They are long and varied. For full details, please see this document:
 [architecture-needs-and-solutions.md](architecture-needs-and-solutions.md)
+
 ### Short version:
 * Uses Gulp as a taskrunner
 * Compass/SASS compilation (we do not use LESS)
 * Dev environment with server/browser sync, linting, testing
 * [Google's file/folder structure](https://docs.google.com/a/scottnath.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
-* Full distribution creation
+* Full distribution/build creation
 
 ## Requirements
 
@@ -47,36 +48,29 @@ After feedback, I will make a Yeoman Generator of the final app system
 ---
 
 ## Questions/Concerns/Bugs I have
-1. Is there a way to compile Compass/SASS using Node instead of Ruby?
-2. research:
-    * [gulp-task-listing](https://www.npmjs.org/package/gulp-task-listing)
-4. Unit Testing
-5. E2E Testing
-6. Distribution build system
-    2. Image Minification
-    7. Font conversion/Icon conversion
-    8. General speed improvements
-7. COMPASS: Compass doesn't seem to be compiling correctly
-    * multiple styles for same element are in separate elements in file
 8. Consistent gulp messaging
 11. Add gulp [plumber](https://github.com/floatdrop/gulp-plumber) so we don't crash on errors
     * [simple-and-awesome-gulp-setup](http://www.kycosoftware.com/blog/article/simple-and-awesome-gulp-setup)
     * [how-to-basic-tasks-in-gulp-js](http://ilikekillnerds.com/2014/07/how-to-basic-tasks-in-gulp-js/)
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
+    * NOTE: crashing on errors is fixed in gulp 4.0, eta tbd
 13. Error sounds/messages
-14. BUG: gulp 'serve' needs to be written better, getting an eslint error
+21. auto-save /build to branch:gh-pages
+22. need to set up browsersync to use IP for multi-devices
+20. watch all html templates and auto-add to templates.js
+	* watch does not see new files or folders
+	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
+### Compass/css specific
+1. Is there a way to compile Compass/SASS using Node instead of Ruby?
+7. COMPASS: Compass doesn't seem to be compiling correctly
+    * multiple styles for same element are in separate elements in file
+23. upgrade csslint to scss-lint: https://github.com/causes/scss-lint, https://github.com/juanfran/gulp-scss-lint
 15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * this means just adding a component would auto-add the scss file to an import for main styles
     * started this, in gulp/development.js 'csstest' using gulp-css-globbing
-16. 'html:convert' in wrong place (concat), should have a 'prodbuild' task or something
-17. simultaneous DEV/PROD servers running at once?
-18. eslint and csslint aren't showing errors in console
+### Bower specific
+16. bower file handling and conversion/minification not complete
 19. Bower files minification creates bugs
-20. watch all html templates and auto-add to templates.js
-21. auto-save /build to branch:gh-pages
-22. need to set up browsersync to use IP for multi-devices
-23. upgrade csslint to scss-lint: https://github.com/causes/scss-lint, https://github.com/juanfran/gulp-scss-lint
-24. watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```
@@ -95,7 +89,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 ## Lofty Goals
 * Pull in complete angular components via Package Manager
     * first test component will be the Object Viewer
-    * need to figure out how to construct the components to match
+    * need to figure out how to construct the components to match system
 * Pull in html patterns via Package Manager and create directives from them
 * Choice for pulled-in items
     * Use as is, allowing fresh pull-requests
