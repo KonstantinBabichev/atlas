@@ -6,6 +6,7 @@
   * &#x2717; [Compass/SASS Compilation](#compass)
   * &#x2717; [Automatic browser-reload](#browserreload)
   * &#x2717; [Javascript Linting](#javascript-linting)
+  * &#x2717; [SCSS Linting](#scss-linting)
   * &#x2717; [CSS Linting](#css-linting)
   * [Unit Testing](#unit-testing)
   * [End 2 End Testing](#e2e-testing)
@@ -149,6 +150,19 @@ Then in '13 [ESLint came around](http://www.nczonline.net/blog/2013/07/16/introd
 * Rules can be pluggable
 	* Each rule can exist in its own file ([discussed here](http://ncona.com/2014/05/using-eslint-to-enforce-js-coding-conventions/))
 	* NBCUOts could create a rule repository
+
+---
+<a id="scss-linting"></a>
+## SCSS Linting
+
+### Task Requirements
+* basic syntax checking
+* test for patterns
+* test for inefficiencies
+
+### Choice: [scss-lint](https://github.com/causes/scss-lint) + [gulp-scss-lint](https://github.com/juanfran/gulp-scss-lint)
+
+Unfortunately our choices are not wide on this. Also, this requires installing a Ruby gem for scss-lint. Hoping we can improve on this in the future.
 
 ---
 <a id="css-linting"></a>
