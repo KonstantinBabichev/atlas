@@ -1,6 +1,9 @@
 <div class="object--MAIN">
   <dl ng-repeat="(key, value) in object" ng-show="value" class="object--property">
     <dt class="object--key">{{key}}</dt>
-    <dd class="object--value">{{value}}</dd>
+    <dd class="object--value" ng-switch on="value | checkValueType">
+        <div ng-switch-when="object"><object-viewer object="value"></object-viewer></div>
+        <div ng-switch-default>{{value}}</div>
+    </dd>
   </dl>
 </div>
