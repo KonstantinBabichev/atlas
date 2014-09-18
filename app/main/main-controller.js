@@ -2,7 +2,7 @@
 
 angular.module('angularApp')
   .controller('MainCtrl', function ($scope) {
-    var tester = "a test again";
+
     $scope.scopedObject = [
       {
         'key': 'angular',

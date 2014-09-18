@@ -85,9 +85,9 @@ body {
 
 /* end app scss files */
 body {
-  background: red; }
+  background: black; }
 
 a {
-  color: light blue !important; }
+  color: light blue; }
   a:visited {
     color: yellow; }

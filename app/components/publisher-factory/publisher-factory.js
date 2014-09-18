@@ -16,10 +16,6 @@ angular.module('angularApp')
   RestangularProvider.setRequestSuffix('.json');
   RestangularProvider.setRequestInterceptor(
     function(elem, operation){
-      if(operation === 'put'){
-        elem._id = undefined;
-        return elem;
-      }
       return elem;
     }
   );
