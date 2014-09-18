@@ -1,5 +1,5 @@
 
-global.gulp = require('gulp')
+var gulp = require('gulp');
 
 global.$ = require('gulp-load-plugins')({
   pattern: [
@@ -44,6 +44,7 @@ global.SETTINGS = {
     scripts: [ // Application javascripts
       '!app/bower_components/**', // ignore bower-ingested scripts
       '!app/**/*_test.js', // ignore our test scripts (for now)
+      '!app/scripts/templates.js', // ignore our test scripts (for now)
       'app/**/*.js', // finds all app files in their folders
       'app/app.js'], // main application file
     scriptFolder: 'app/scripts/',

@@ -1,51 +1,50 @@
 'use strict';
-
+var gulp = require('gulp');
 /*********************************************
 COMPASS .scss COMPILATION
 */
-gulp.task('scss:globbing', function() {
+gulp.task('dev:scss:globbing', function() {
   console.log('-------------------------------------------------- csstest');
-  var cssFilter = $.filter('**/*.css'); // our css
+
   return gulp.src(SETTINGS.src.css + 'styles.scss')
-  .pipe($.print())
-  //.pipe(cssFilter)
-  .pipe($.cssGlobbing({
-    extensions: ['.css', '.scss'],
-    ignoreFolders: ['../styles']
-  }))
-  //.pipe(cssFilter.restore())
-  .pipe(gulp.dest(SETTINGS.src.css));
+    .pipe($.print())
+    .pipe($.cssGlobbing({
+      extensions: ['.css', '.scss'],
+      ignoreFolders: ['../styles']
+    }))
+    .pipe(gulp.dest(SETTINGS.src.css));
 });
 //NATH: add css lint to this section
 //NATH: ['scss:globbing'] can be added once my ignoreFolders repair is in place
-gulp.task('compass', function() {
+gulp.task('dev:compass', ['dev:scss:globbing'], function() {
   console.log('-------------------------------------------------- DEVELOPMENT: Compass .scss conversion');
 
   return gulp.src(SETTINGS.src.styles)
-  .pipe($.compass({
-    css: 'app/styles',
-    sass: 'app/styles',
-    comments: true,
-    style: 'nested',
-    logging: true
-  }))
-  .pipe($.print())
-  .on('error', function(err) {
-    // Nath: compass errors happen multiple times - need to controll this
-  })
-  .pipe(gulp.dest(SETTINGS.src.css))
-  .pipe(reload({stream:true}));
+    .pipe($.compass({
+      css: 'app/styles',
+      sass: 'app/styles',
+      comments: false,
+      style: 'nested',
+      logging: true
+    }))
+    .pipe($.print())
+    .on('error', function(err) {
+      // Nath: compass errors happen multiple times - need to controll this
+    })
+    .pipe(gulp.dest(SETTINGS.src.app))
+    .pipe(reload({stream:true}));
 });
 /*********************************************
 ESLint Javascript Linting
 */
 
-gulp.task('eslint', function () {
+gulp.task('dev:eslint', function () {
   console.log('-------------------------------------------------- DEVELOPMENT: ESLint Javascript Linting');
   return gulp.src(SETTINGS.src.scripts)
     .pipe($.print())
     .pipe($.eslint('.eslintrc'))
-    .pipe($.eslint.format());
+    .pipe($.eslint.format())
+    .pipe(reload({stream:true}));
 });
 
 // NATH: this eslint existed due to the errors on watch that happened before. if we can get this working without the errors, remove gulp-watch from package.json
@@ -61,19 +60,27 @@ gulp.task('eslint', function () {
 /*********************************************
 CSSLint CSS Linting
 */
-gulp.task('csslint', function() {
+gulp.task('dev:csslint', function() {
   console.log('-------------------------------------------------- DEVELOPMENT: CSSLint CSS Linting');
   return gulp.src(SETTINGS.src.css + '/styles.css')
     .pipe($.print())
     .pipe($.csslint('.csslintrc'))
-    .pipe($.csslint.reporter());
+    .pipe($.csslint.reporter())
+    .pipe(reload({stream:true}));
 });
 
 /*********************************************
 HTML Templates Conversion to Angular Javascript Templates
 */
-gulp.task('html:convert', function(){
+gulp.task('dev:html:convert', function(){
   console.log('-------------------------------------------------- DEVELOPMENT: HTML->AngularJS templatescache');
+
+  // test code for gulp-watch
+  // return gulp.src(SETTINGS.src.html)
+  //   .pipe($.watch(function(files) {
+  //     return files.pipe($.angularTemplatecache({ module:'templatescache', standalone:true }))
+  //     .pipe(gulp.dest(SETTINGS.src.scriptFolder));
+  //   }));
   return gulp.src(SETTINGS.src.html)
     .pipe($.angularTemplatecache({ module:'templatescache', standalone:true }))
     .pipe(gulp.dest(SETTINGS.src.scriptFolder));
@@ -82,16 +89,16 @@ gulp.task('html:convert', function(){
 /*********************************************
 WATCH Tasks specific to development
 */
-gulp.task('watch:development', function(){
-  gulp.watch(SETTINGS.src.styles, ['compass']);
-  gulp.watch(SETTINGS.src.html, ['html:convert']);
-  gulp.watch(SETTINGS.src.css, ['csslint']);
-  gulp.watch(SETTINGS.src.scripts, ['eslint']);
+gulp.task('dev:watch', function(){
+  gulp.watch(SETTINGS.src.styles, ['dev:compass']);
+  gulp.watch(SETTINGS.src.html, ['dev:html:convert']);
+  gulp.watch(SETTINGS.src.css, ['dev:csslint']);
+  gulp.watch(SETTINGS.src.scripts, ['dev:eslint']);
 });
 
 /*********************************************
 DEVELOPMENT Master Task
 */
-gulp.task('development', ['wiredep','compass', 'eslint', 'csslint', 'html:convert', 'watch:development']);
+gulp.task('development', ['wiredep','dev:compass', 'dev:eslint', 'dev:csslint', 'dev:html:convert']);
 
 

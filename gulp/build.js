@@ -1,5 +1,5 @@
 'use strict';
-
+var gulp = require('gulp');
 /*********************************************
 CLEAN Build folder and sub-parts
 */
@@ -8,23 +8,23 @@ var cleanFiles = function (files, logMessage) {
   return gulp.src(files, {read: false}).pipe($.rimraf({force: true}));
 };
 
-gulp.task('clean', function () {
+gulp.task('build:clean', function () {
   return cleanFiles([SETTINGS.build.app], 'all files');
 });
 
-gulp.task('clean:css', function () {
+gulp.task('build:clean:css', function () {
   return cleanFiles([SETTINGS.build.css], 'css');
 });
 
-gulp.task('clean:bower', function () {
+gulp.task('build:clean:bower', function () {
   return cleanFiles([SETTINGS.build.bower], 'bower');
 });
 
-gulp.task('clean:js', function () {
+gulp.task('build:clean:js', function () {
   return cleanFiles([SETTINGS.build.js], 'js');
 });
 
-gulp.task('clean:html', function () {
+gulp.task('build:clean:html', function () {
   return cleanFiles([SETTINGS.build.htmlMain], 'html');
 });
 
@@ -49,7 +49,7 @@ NATH: to do
 * need to figure out how to get .min versions of bower files OR how to minimize them ourselves without error
 
 */
-gulp.task('build', ['clean', 'compass', 'html:convert'], function(){
+gulp.task('build', ['build:clean', 'development'], function(){
 
   var jsFilter = $.filter('**/all-*.js'); // our scripts
   var cssFilter = $.filter('**/*.css'); // our css

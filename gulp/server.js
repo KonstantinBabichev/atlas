@@ -1,6 +1,6 @@
 'use strict';
-
-gulp.task('serve:dev', ['development'], function () {
+var gulp = require('gulp');
+gulp.task('serve', ['development', 'dev:watch'], function () {
 
   console.log('------------------>>>> firing DEV server  <<<<-----------------------');
   $.browserSync.init(null, {
