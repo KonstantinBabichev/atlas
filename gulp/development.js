@@ -1,10 +1,11 @@
 'use strict';
 var gulp = require('gulp');
+
 /*********************************************
-COMPASS .scss COMPILATION
+SCSS .scss COMPILATION
 */
 gulp.task('dev:scss:globbing', function() {
-  console.log('-------------------------------------------------- csstest');
+  console.log('-------------------------------------------------- DEVELOPMENT: SCSS Globbing');
 
   return gulp.src(SETTINGS.src.css + 'styles.scss')
     .pipe($.print())
@@ -14,9 +15,11 @@ gulp.task('dev:scss:globbing', function() {
     }))
     .pipe(gulp.dest(SETTINGS.src.css));
 });
-//NATH: add css lint to this section
-//NATH: ['scss:globbing'] can be added once my ignoreFolders repair is in place
-gulp.task('dev:compass', ['dev:scss:globbing'], function() {
+
+/*********************************************
+Compass compilation
+*/
+gulp.task('dev:compass', ['dev:scss:globbing', 'dev:scsslint'], function() {
   console.log('-------------------------------------------------- DEVELOPMENT: Compass .scss conversion');
 
   return gulp.src(SETTINGS.src.styles)
@@ -34,10 +37,10 @@ gulp.task('dev:compass', ['dev:scss:globbing'], function() {
     .pipe(gulp.dest(SETTINGS.src.app))
     .pipe(reload({stream:true}));
 });
+
 /*********************************************
 ESLint Javascript Linting
 */
-
 gulp.task('dev:eslint', function () {
   console.log('-------------------------------------------------- DEVELOPMENT: ESLint Javascript Linting');
   return gulp.src(SETTINGS.src.scripts)
@@ -66,6 +69,18 @@ gulp.task('dev:csslint', function() {
     .pipe($.print())
     .pipe($.csslint('.csslintrc'))
     .pipe($.csslint.reporter())
+    .pipe(reload({stream:true}));
+});
+
+/*********************************************
+SCSSLint SCSS Linting
+*/
+gulp.task('dev:scsslint', function() {
+  console.log('-------------------------------------------------- DEVELOPMENT: SCSSLint SCSS Linting');
+  return gulp.src(SETTINGS.src.styles)
+    .pipe($.scssLint({
+      'config': 'scsslintrc.yml'
+    }))
     .pipe(reload({stream:true}));
 });
 

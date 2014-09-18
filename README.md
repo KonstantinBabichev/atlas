@@ -22,6 +22,7 @@ They are long and varied. For full details, please see this document:
 ### You will need to install these
 * [Ruby](http://www.ruby-lang.org/en/downloads/)
 * [compass/sass](http://compass-style.org/install/) globally installed
+* [scss-lint](https://github.com/causes/scss-lint#installation) globally installed
 * [node.js](http://nodejs.org)
 
 ### Node-Installed items:
@@ -48,6 +49,14 @@ After feedback, I will make a Yeoman Generator of the final app system
 ---
 
 ## Questions/Concerns/Bugs I have
+21. auto-save /build to branch:gh-pages
+22. need to set up browsersync to use IP for multi-devices
+20. watch all html templates and auto-add to templates.js
+	* watch does not see new files or folders
+	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
+1. check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
+### Gulp specific
+1. Move config files into /gulp/configs
 8. Consistent gulp messaging
 11. Add gulp [plumber](https://github.com/floatdrop/gulp-plumber) so we don't crash on errors
     * [simple-and-awesome-gulp-setup](http://www.kycosoftware.com/blog/article/simple-and-awesome-gulp-setup)
@@ -55,11 +64,6 @@ After feedback, I will make a Yeoman Generator of the final app system
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
     * NOTE: crashing on errors is fixed in gulp 4.0, eta tbd
 13. Error sounds/messages
-21. auto-save /build to branch:gh-pages
-22. need to set up browsersync to use IP for multi-devices
-20. watch all html templates and auto-add to templates.js
-	* watch does not see new files or folders
-	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 ### Compass/css specific
 1. Is there a way to compile Compass/SASS using Node instead of Ruby?
 7. COMPASS: Compass doesn't seem to be compiling correctly
