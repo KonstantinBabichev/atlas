@@ -13,6 +13,14 @@ angular.module('angularApp')
           // a 'pre'- and 'post'-link function.
         });
       },
+      controller: function($scope){
+        $scope.test = function (value){
+          if (typeof(value) == "function") {
+            return null;
+          }
+          return value;
+        }
+      },
 			link: function(scope, element, attrs, fn) {
         //var tester = "a test again";
 
