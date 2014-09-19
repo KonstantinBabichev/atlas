@@ -1,0 +1,26 @@
+
+
+<article class="media-gallery--MAIN">
+  <div class="media-gallery--content">
+    <h2 class="media-gallery--header">Gallery Header</h2>
+    <nav class="media-gallery--nav">
+      <span class="media-gallery--previous"></span>
+      <span class="media-gallery--next"></span>
+      <span class="media-gallery--page-numbers">1 of 4</span>
+    </nav>
+    <div class="media-gallery--wrapped-slide">
+      <div class="media-gallery--slider">
+        <div class="media-gallery--slider-inner">
+
+          <div ng-repeat="gallery in allContentItems" class="media-gallery--slide">
+
+            <a href="#/gallery/{{gallery.id}}" class="image-link"><img ng-src="{{gallery.photos[0].sizes.thumbnail.uri}}"></a>
+            <h2><a href="#/gallery/{{gallery.id}}">{{gallery.name}}</a></h2>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

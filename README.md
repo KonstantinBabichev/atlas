@@ -72,6 +72,8 @@ After feedback, I will make a Yeoman Generator of the final app system
 15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * this means just adding a component would auto-add the scss file to an import for main styles
     * started this, in gulp/development.js 'csstest' using gulp-css-globbing
+    * scss-globbing should only run once? OR maybe on change noticed in *new* scss files, we should run it anew?
+16. NORTH scss structure!
 ### Bower specific
 16. bower file handling and conversion/minification not complete
 19. Bower files minification creates bugs
@@ -98,3 +100,6 @@ After feedback, I will make a Yeoman Generator of the final app system
 * Choice for pulled-in items
     * Use as is, allowing fresh pull-requests
     * Add to system as editable code
+* For publisher gallery, research/find mostly-css-transform-based gallery
+* For publisher shows, follow [erin's guidelines](https://github.com/NBCUOTS/pavo/issues/63#issuecomment-56210523) and a more generic system
+	* this follows to how we can use the component library!

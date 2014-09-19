@@ -1,0 +1,16 @@
+<a href="#/gallery" class="breadcrumb">all galleries</a>
+
+
+<article class="gallery">
+  <h1>{{gallery.name}}</h1>
+  <ul class="gallery-full">
+    <li class="full" ng-repeat="photos in gallery.photos"><img ng-src="{{photos.sizes.large.uri}}"></li>
+  </ul>
+  <ul class="gallery-thumbs">
+    <li ng-repeat="photos in gallery.photos"><a href=""><img ng-src="{{photos.sizes.thumbnail.uri}}"></a></li>
+  </ul>
+
+
+</article>
+
+<object-viewer object="gallery"></object-viewer>

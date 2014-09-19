@@ -45,6 +45,34 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
+.media-gallery--slide {
+  overflow: hidden;
+  padding: .2em;
+  position: relative;
+  height: 100px; }
+  .media-gallery--slide .image-link {
+    float: left;
+    width: 110px;
+    text-align: center;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: relative;
+    top: 50%; }
+    .media-gallery--slide .image-link img {
+      margin: 0 auto; }
+  .media-gallery--slide h2 {
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: relative;
+    top: 50%; }
+
+body {
+  font-size: 1.4em; }
+
 body {
   font-size: 1.4em; }
 
