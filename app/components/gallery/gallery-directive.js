@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angularApp')
 	.directive('gallery', function() {
 		return {

@@ -55,6 +55,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 	* watch does not see new files or folders
 	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 1. check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
+
 ### Gulp specific
 1. Move config files into /gulp/configs
 8. Consistent gulp messaging
@@ -64,14 +65,17 @@ After feedback, I will make a Yeoman Generator of the final app system
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
     * NOTE: crashing on errors is fixed in gulp 4.0, eta tbd
 13. Error sounds/messages
+
 ### Compass/css specific
 1. Is there a way to compile Compass/SASS using Node instead of Ruby?
-7. COMPASS: Compass doesn't seem to be compiling correctly
+7. ~~COMPASS: Compass doesn't seem to be compiling correctly~~
     * multiple styles for same element are in separate elements in file
+    * THIS IS CORRECT. Nature of css, changes may come from below, thus an element can re-appear and be changed later.
 15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * works now!
     * TODO: perform this update *only* when there is a *NEW* or *REMOVED* .scss file
 16. NORTH scss structure!
+
 ### Bower specific
 16. bower file handling and conversion/minification not complete
 19. Bower files minification creates bugs

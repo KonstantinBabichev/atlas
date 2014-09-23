@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angularApp')
   .filter('checkValueType', function () {
     return function (item) {

@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angularApp')
 	.directive('shows', function() {
 		return {
