@@ -68,11 +68,9 @@ After feedback, I will make a Yeoman Generator of the final app system
 1. Is there a way to compile Compass/SASS using Node instead of Ruby?
 7. COMPASS: Compass doesn't seem to be compiling correctly
     * multiple styles for same element are in separate elements in file
-23. upgrade csslint to scss-lint: https://github.com/causes/scss-lint, https://github.com/juanfran/gulp-scss-lint
 15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
-    * this means just adding a component would auto-add the scss file to an import for main styles
-    * started this, in gulp/development.js 'csstest' using gulp-css-globbing
-    * scss-globbing should only run once? OR maybe on change noticed in *new* scss files, we should run it anew?
+    * works now!
+    * TODO: perform this update *only* when there is a *NEW* or *REMOVED* .scss file
 16. NORTH scss structure!
 ### Bower specific
 16. bower file handling and conversion/minification not complete

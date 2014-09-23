@@ -6,6 +6,7 @@
   * &#x2717; [Compass/SASS Compilation](#compass)
   * &#x2717; [Automatic browser-reload](#browserreload)
   * &#x2717; [Javascript Linting](#javascript-linting)
+  * &#x2717; [CSS Globbing](#css-globbing)
   * &#x2717; [SCSS Linting](#scss-linting)
   * &#x2717; [CSS Linting](#css-linting)
   * [Unit Testing](#unit-testing)
@@ -150,6 +151,20 @@ Then in '13 [ESLint came around](http://www.nczonline.net/blog/2013/07/16/introd
 * Rules can be pluggable
 	* Each rule can exist in its own file ([discussed here](http://ncona.com/2014/05/using-eslint-to-enforce-js-coding-conventions/))
 	* NBCUOts could create a rule repository
+
+---
+<a id="css-globbing"></a>
+## CSS Globbing
+
+### Task Requirements
+* Find all scss files in our /app system
+* Add these files to our main styles.scss file as @imports
+* Refresh this import list whenever new files are added, even with dev server running
+
+### Choice: [gulp-css-globbing](https://github.com/jsahlen/gulp-css-globbing)
+
+Scott Nath has been contributing back to this excellent script to get the extra functionality we needed. It now fulfills all out requirements for globbing the latest scss files into one place for Compass to work properly in our system.
+
 
 ---
 <a id="scss-linting"></a>
