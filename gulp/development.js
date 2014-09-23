@@ -11,7 +11,13 @@ gulp.task('dev:scss:globbing', function() {
     .pipe($.print())
     .pipe($.cssGlobbing({
       extensions: ['.css', '.scss'],
-      ignoreFolders: ['../styles']
+      ignoreFolders: ['../styles'],
+      autoReplaceBlock: {
+        onOff: true,
+        globBlockBegin: 'cssGlobbingBegin',
+        globBlockEnd: 'cssGlobbingEnd',
+        globBlockContents: '../**/*.scss'
+      }
     }))
     .pipe(gulp.dest(SETTINGS.src.css));
 });

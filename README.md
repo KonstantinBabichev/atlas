@@ -103,3 +103,10 @@ After feedback, I will make a Yeoman Generator of the final app system
 * For publisher gallery, research/find mostly-css-transform-based gallery
 * For publisher shows, follow [erin's guidelines](https://github.com/NBCUOTS/pavo/issues/63#issuecomment-56210523) and a more generic system
 	* this follows to how we can use the component library!
+* different /app profiles available
+	* publisher/drupal
+	* firebase
+		* basic setup YOURFIREBASEACCT/YOURFIREBASEPASS/YOURFIREBASEDB
+		* inlcude object-viewer
+	* wordpress
+	* browser storage
