@@ -57,11 +57,8 @@ After feedback, I will make a Yeoman Generator of the final app system
 1. check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
 
 ### Publisher
-1. remove "galleries"
-2. single should be "image"
-3. /show/id/gallery should be gallery page
 4. gallery: borealis + transform
-5. FILE STRUCTURE: gallery doesn't really belong in it's own folder. component or sub-folder of shows?
+5. incorporate proper gallery HTML
 
 ### Gulp specific
 1. Move config files into /gulp/configs
