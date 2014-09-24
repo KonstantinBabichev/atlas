@@ -15,6 +15,15 @@ angular.module('angularApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
         templateUrl: 'login/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/show/:a/:galleryId', {
+        templateUrl: 'components/gallery/gallery.html',
+        controller: 'GalleryCtrl',
+        resolve: {
+          contentItem: function(Restangular, $route){
+            return Restangular.one('gallery', $route.current.params.galleryId).get();
+          }
+        }
+      })
       .when('/:a', {
         templateUrl: 'content-type/content-type.html',
         controller: 'ContentTypeCtrl'

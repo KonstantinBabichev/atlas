@@ -5,6 +5,9 @@ angular.module('angularApp')
 		return {
 			restrict: 'E',
 			templateUrl: 'components/show/shows.html',
+      scope: {
+        shows: '='
+      },
 			link: function(scope, element, attrs, fn) {
 
 

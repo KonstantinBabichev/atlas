@@ -1,13 +1,10 @@
-<a href="#/gallery" class="breadcrumb">all galleries</a>
 
-
+NOTE: image-gallery javascript/html should be implemented here once it's known
+<show-small show="show"></show-small>
 <article class="gallery">
   <h1>{{gallery.name}}</h1>
-  <ul class="gallery-full">
-    <li class="full" ng-repeat="photos in gallery.photos"><img ng-src="{{photos.sizes.large.uri}}"></li>
-  </ul>
   <ul class="gallery-thumbs">
-    <li ng-repeat="photos in gallery.photos"><a href=""><img ng-src="{{photos.sizes.thumbnail.uri}}"></a></li>
+    <li ng-repeat="photos in gallery.photos"><a href="Javascript:;"><img ng-src="{{photos.sizes.thumbnail.uri}}"></a></li>
   </ul>
 
 

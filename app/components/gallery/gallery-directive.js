@@ -10,4 +10,17 @@ angular.module('angularApp')
 
 			}
 		};
-});
+  })
+  .directive('gallerySmall', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'components/gallery/gallery-small.html',
+      scope: {
+        gallery: '='
+      },
+      link: function(scope, element, attrs, fn) {
+
+
+      }
+    };
+  });

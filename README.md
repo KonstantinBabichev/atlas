@@ -56,6 +56,13 @@ After feedback, I will make a Yeoman Generator of the final app system
 	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 1. check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
 
+### Publisher
+1. remove "galleries"
+2. single should be "image"
+3. /show/id/gallery should be gallery page
+4. gallery: borealis + transform
+5. FILE STRUCTURE: gallery doesn't really belong in it's own folder. component or sub-folder of shows?
+
 ### Gulp specific
 1. Move config files into /gulp/configs
 8. Consistent gulp messaging
@@ -65,6 +72,7 @@ After feedback, I will make a Yeoman Generator of the final app system
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
     * NOTE: crashing on errors is fixed in gulp 4.0, eta tbd
 13. Error sounds/messages
+14. How to install compass plugins like singularity + breakpoint
 
 ### Compass/css specific
 1. Is there a way to compile Compass/SASS using Node instead of Ruby?
@@ -72,13 +80,14 @@ After feedback, I will make a Yeoman Generator of the final app system
     * multiple styles for same element are in separate elements in file
     * THIS IS CORRECT. Nature of css, changes may come from below, thus an element can re-appear and be changed later.
 15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
-    * works now!
+    * **works now!**
     * TODO: perform this update *only* when there is a *NEW* or *REMOVED* .scss file
 16. NORTH scss structure!
 
 ### Bower specific
 16. bower file handling and conversion/minification not complete
 19. Bower files minification creates bugs
+20. example for a bower-added angular template
 
 ## Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```
@@ -98,6 +107,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 * Pull in complete angular components via Package Manager
     * first test component will be the Object Viewer
     * need to figure out how to construct the components to match system
+    * https://github.com/angular/material
 * Pull in html patterns via Package Manager and create directives from them
 * Choice for pulled-in items
     * Use as is, allowing fresh pull-requests
@@ -112,3 +122,48 @@ After feedback, I will make a Yeoman Generator of the final app system
 		* inlcude object-viewer
 	* wordpress
 	* browser storage
+
+## Example Publisher Code
+Publisher is my employer's version of Drupal. There is functionality in this example system to connect to a test version of Publisher
+
+### Available Content Types
+
+* Show [show.json](http://pubapi.r6by.com/show.json)
+* Gallery [show.json](http://pubapi.r6by.com/gallery.json)
+
+### URLs
+#### All Shows (#/show)
+* pre-processed url: #/:a
+* controller: /app/content-type/content-type-controller.js (ContentTypeCtrl)
+* view: /app/content-type/content-type.html (uses ng-switch on 'contentType')
+	* directive: /app/components/show/shows-directive.js (shows)
+	* directive-view: /app/components/show/shows.html
+		
+#### Single Show (#/show/[show.id])
+* pre-processed url: #/:a/:contentItem
+* controller: /app/content-item/content-item-controller.js (ContentItemCtrl)
+* view: /app/content-item/content-item.html (uses ng-switch on 'contentItem')
+	* directive: /app/components/show/show-directive.js (show)
+	* directive-view: /app/components/show/show.html
+		* Factory: /app/components/gallery/galleries-factory.js (getGalleries)
+			* Object: galleriesFromShowId returns: Galleries Array from gallery.show[0].id
+		* directive: /app/components/gallery/galleries-directive.js (galleriesSmall)
+		* directive-view: /app/components/gallery/galleries-small.html
+		* directive: /app/components/object-viewer/object-viewer-directive.js (object)
+		* directive-view: /app/components/object-viewer/object-viewer.html
+
+#### Single Gallery under a Show (#/show/[show.id]/[gallery.id])
+* pre-processed url: #/show/:a/:galleryId
+* controller: /app/components/gallery/gallery-controller.js (GalleryCtrl)
+* view: /app/components/gallery/gallery.html
+	* Factory: /app/components/show/show-factory.js (getShow)
+		* Object: showFromShowId returns: Show object from gallery.show[0].id
+	* directive: /app/components/show/show-directive.js (showSmall)
+	* directive-view: /app/components/show/show-small.html
+	* directive: /app/components/object-viewer/object-viewer-directive.js (object)
+	* directive-view: /app/components/object-viewer/object-viewer.html
+	
+	
+	
+	
+	

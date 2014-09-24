@@ -1,15 +1,6 @@
-ContentType template
+(ContentType template)
 <div ng-switch on="contentType">
-  <span ng-switch-when="show"><shows></shows></span>
+  <span ng-switch-when="show"><shows shows="allContentItems"></shows></span>
   <span ng-switch-when="gallery"><galleries></galleries></span>
   <span ng-switch-default>Not a Content Type</span>
 </div>
-<!-- <h1>All Shows</h1>
-
-<div ng-repeat="show in allContentItems">
-  <div class="show">
-    <h2><a href="#/show/{{show.id}}">{{show.name}}</a></h2>
-    <p>{{show.genre}}</p>
-  </div>
-
-</div> -->

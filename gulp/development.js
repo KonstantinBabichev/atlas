@@ -2,7 +2,7 @@
 var gulp = require('gulp');
 
 /*********************************************
-SCSS .scss COMPILATION
+SCSS .scss GLOBBING
 */
 gulp.task('dev:scss:globbing', function() {
   console.log('-------------------------------------------------- DEVELOPMENT: SCSS Globbing');

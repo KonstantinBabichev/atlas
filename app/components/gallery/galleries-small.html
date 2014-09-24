@@ -1,0 +1,6 @@
+<span ng-repeat="gallery in galleries">
+  <a href="#/show/{{gallery.show[0].id}}/{{gallery.id}}">
+    <img ng-src="{{gallery.photos[0].sizes.thumbnail.uri}}">
+    <span>{{gallery.name}}</span>
+  </a>
+</span>

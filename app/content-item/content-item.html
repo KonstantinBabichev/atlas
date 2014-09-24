@@ -1,3 +1,6 @@
 
-<span ng-if="contentType == 'show'"><show></show></span>
-<span ng-if="contentType == 'gallery'"><gallery></gallery></span>
+<div ng-switch on="contentType">
+  <span ng-switch-when="show"><show show="contentItem"></show></span>
+  <span ng-switch-when="gallery"><gallery></gallery></span>
+  <span ng-switch-default>Not a Content Type</span>
+</div>

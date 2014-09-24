@@ -7,7 +7,6 @@ angular.module('angularApp')
 			templateUrl: 'components/object-viewer/object-viewer.html',
       scope: {object: '='},
       compile: function(element) {
-        console.log(element);
         return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){
           // Define your normal link function here.
           // Alternative: instead of passing a function,
