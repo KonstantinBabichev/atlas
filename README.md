@@ -55,10 +55,12 @@ After feedback, I will make a Yeoman Generator of the final app system
 	* watch does not see new files or folders
 	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 1. check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
+2. In-code notes should match drupal rules
 
 ### Publisher
 4. gallery: borealis + transform
 5. incorporate proper gallery HTML
+6. remove unnecessary code/files
 
 ### Gulp specific
 1. Move config files into /gulp/configs
@@ -86,7 +88,12 @@ After feedback, I will make a Yeoman Generator of the final app system
 19. Bower files minification creates bugs
 20. example for a bower-added angular template
 
-## Bugs that were fixed, and how
+## Research
+* UI-Route vs Angular Route
+* change /app to /dev or /development?
+
+
+# Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```
     * most tubes pointed to a problem with the open-file limit of 256 files on macs
     * terminal commands to increase this limit by changing ulimit did not help
@@ -128,6 +135,10 @@ Publisher is my employer's version of Drupal. There is functionality in this exa
 * Show [show.json](http://pubapi.r6by.com/show.json)
 * Gallery [show.json](http://pubapi.r6by.com/gallery.json)
 
+### Publisher Factory Details
+* TODO: should 'publisher' be a component, with factory and the below as subfolders? 
+
+
 ### URLs
 #### All Shows (#/show)
 * pre-processed url: #/:a
@@ -160,7 +171,67 @@ Publisher is my employer's version of Drupal. There is functionality in this exa
 	* directive: /app/components/object-viewer/object-viewer-directive.js (object)
 	* directive-view: /app/components/object-viewer/object-viewer.html
 	
-	
-	
-	
-	
+## Example Code for each Generator Option
+### Route
+* /app/scripts/app.js
+	* also:
+		* *controller* (full)
+		* *view template*
+	* also-files should be created in /app/name-of-route
+
+### Controller
+* /app/main/main-controller.js
+	* also (in /app/main):
+		* test: main-controller_test.js
+		* scss: _main.scss
+
+### Directive
+* /app/components/directive-example/directive-example-directive.js
+	* also (in /app/components/directive-example)
+		* test: directive-example-directive_test.js
+		* scss: _directive-example.scss
+
+### TemplateUrl Directive
+* /app/components/login-form-directive.js
+	* also (in /app/components/login-form)
+		* test: login-form-directive_test.js
+		* scss: _login-form.scss
+		* html: login-form.html
+		
+### Filter
+* (default) stand-alone: /app/components/??-filter/??-filter.js
+* sub-component or section filter: /app/components/object-view/??-filter/??-filter.js
+* TODO: move check-value-type filter to subfolder
+	* also (in either path)
+		* test: ??-filter_test.js
+
+### View
+* what is a use-case for making *just* a view file?
+	* route template? done when making a route
+	* directive template? done when making templateUrl directive
+	* how else would a view's contents get in the angular system?
+
+### Service
+* (default) stand-alone: /app/components/??-service/??-service.js
+* sub-component or section service: /app/components/object-view/??-service/??-service.js
+	* also (in either path)
+		* test: ??-service_test.js
+	* TODO: add service in BOTH places
+		
+### Constant
+* (default) in app: /app/scripts/app.js
+* sub-component or section constant:  /app/components/object-view/object-view-constants.js
+	* TODO: add to app.js
+
+### Factory
+* (default) stand-alone: /app/components/??-factory/??-factory.js
+* sub-component or section factory: /app/components/object-view/??-factory/??-factory.js
+	* also (in either path)
+		* test: ??-factory_test.js
+	* TODO: add factory in BOTH places
+
+### Provider
+?
+
+### Value
+?

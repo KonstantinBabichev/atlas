@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularApp')
-	.directive('objectViewer', function(RecursionHelper) {
+	.directive('objectViewer',['RecursionHelper', function(RecursionHelper) {
 		return {
 			restrict: 'E',
 			templateUrl: 'components/object-viewer/object-viewer.html',
@@ -27,4 +27,4 @@ angular.module('angularApp')
 
 			}
 		};
-});
+  }]);

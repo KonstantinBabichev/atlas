@@ -73,9 +73,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 body {
   font-size: 1.4em; }
 
-body {
-  font-size: 1.4em; }
-
 .object--MAIN {
   margin: .5em 0;
   padding: .5em;
@@ -111,7 +108,7 @@ body {
     text-decoration: none; }
 
 body {
-  background: red; }
+  background: black; }
 
 a {
   color: light blue; }
