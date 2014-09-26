@@ -3,6 +3,7 @@
     <dt class="object--key">{{key}}</dt>
     <dd class="object--value" ng-switch on="value | checkValueType">
         <div ng-switch-when="object"><object-viewer object="value"></object-viewer></div>
+        <div ng-switch-when="array"><pre>{{value | json}}</pre></div>
         <div ng-switch-default>{{value}}</div>
     </dd>
   </dl>

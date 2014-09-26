@@ -92,6 +92,10 @@ After feedback, I will make a Yeoman Generator of the final app system
 * UI-Route vs Angular Route
 * change /app to /dev or /development?
 
+## Object Viewer
+* create ARRAY section
+
+
 
 # Bugs that were fixed, and how
 1. When trying to use Gulp's built-in **gulp-watch** to track eslint I'm getting ```Error: EMFILE, too many open files```
@@ -192,31 +196,25 @@ Publisher is my employer's version of Drupal. There is functionality in this exa
 		* scss: _directive-example.scss
 
 ### TemplateUrl Directive
-* /app/components/login-form-directive.js
+* /app/components/login-form/login-form-directive.js
 	* also (in /app/components/login-form)
 		* test: login-form-directive_test.js
 		* scss: _login-form.scss
 		* html: login-form.html
 		
 ### Filter
-* (default) stand-alone: /app/components/??-filter/??-filter.js
-* sub-component or section filter: /app/components/object-view/??-filter/??-filter.js
-* TODO: move check-value-type filter to subfolder
-	* also (in either path)
-		* test: ??-filter_test.js
+* (default) stand-alone: /app/components/yes-no-filter/yes-no-filter.js
+	* also
+		* test: yes-no-filter_test.js
+* component/section: /app/components/object-viewer/check-value-type/check-value-type-filter.js
+	* also
+		* test: check-value-type-filter_test.js
 
 ### View
 * what is a use-case for making *just* a view file?
 	* route template? done when making a route
 	* directive template? done when making templateUrl directive
 	* how else would a view's contents get in the angular system?
-
-### Service
-* (default) stand-alone: /app/components/??-service/??-service.js
-* sub-component or section service: /app/components/object-view/??-service/??-service.js
-	* also (in either path)
-		* test: ??-service_test.js
-	* TODO: add service in BOTH places
 		
 ### Constant
 * (default) in app: /app/scripts/app.js
@@ -231,7 +229,7 @@ Publisher is my employer's version of Drupal. There is functionality in this exa
 	* TODO: add factory in BOTH places
 
 ### Provider
-?
+to do
 
 ### Value
 ?
