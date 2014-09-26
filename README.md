@@ -223,13 +223,13 @@ Publisher is my employer's version of Drupal. There is functionality in this exa
 
 ### Factory
 * (default) stand-alone: /app/components/??-factory/??-factory.js
-* sub-component or section factory: /app/components/object-view/??-factory/??-factory.js
-	* also (in either path)
-		* test: ??-factory_test.js
-	* TODO: add factory in BOTH places
+* component/section factory: /app/components/publisher/rest-service/publisher-restangular-factory.js
+	* also
+		* test: publisher-restangular-factory_test.js
+	* TODO: add stand-alone factory in /app/components
 
 ### Provider
 to do
 
 ### Value
-?
+to do
