@@ -39,6 +39,7 @@ global.SETTINGS = {
     css: 'app/styles/', // compiled css
     styles: [ // SASS files
       '!app/bower_components/**', // ignore any scss files in bower-ingested folders
+      '!app/**/_extends.scss', '!app/**/_mixins.scss', '!app/**/_variables.scss', // ignore north-inspired files, which are brought in by their parent .scss file
       'app/**/*.scss',
       'app/styles/styles.scss'], // calls main style sass file, which imports the others
     scripts: [ // Application javascripts

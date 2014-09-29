@@ -32,7 +32,7 @@ gulp.task('dev:compass', ['dev:scss:globbing', 'dev:scsslint'], function() {
     .pipe($.compass({
       css: 'app/styles',
       sass: 'app/styles',
-      comments: false,
+      comments: true,
       style: 'nested',
       logging: true
     }))
