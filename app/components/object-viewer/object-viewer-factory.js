@@ -1,19 +1,30 @@
 'use strict';
-/*
- * An Angular service which helps with creating recursive directives.
- * @author Mark Lagendijk
- * @license MIT
- * @source: http://stackoverflow.com/questions/14430655/recursion-in-angular-directives / http://plnkr.co/edit/JAIyolmqPqO9KsynSiZp?p=preview
- */
+
+/**
+* @ngdoc filter
+* @name angularApp.RecursionHelper
+*
+* @requires $compile
+* @description
+* An Angular service which helps with creating recursive directives.
+* @author Mark Lagendijk
+* @license MIT
+* @source: http://stackoverflow.com/questions/14430655/recursion-in-angular-directives / http://plnkr.co/edit/JAIyolmqPqO9KsynSiZp?p=preview
+*/
+
 angular.module('angularApp')
   .factory('RecursionHelper', ['$compile', function($compile){
     return {
       /**
-       * Manually compiles the element, fixing the recursion loop.
-       * @param element
-       * @param [link] A post-link function, or an object with function(s) registered via pre and post properties.
-       * @returns An object containing the linking functions.
-       */
+      * @ngdoc method
+      * @name compile
+      * @methodOf angularApp.RecursionHelper
+      * @description
+      * Manually compiles the element, fixing the recursion loop.
+      * @param element
+      * @param [link] A post-link function, or an object with function(s) registered via pre and post properties.
+      * @returns An object containing the linking functions.
+      */
       compile: function(element, link){
         // Normalize the link parameter
         if(angular.isFunction(link)){

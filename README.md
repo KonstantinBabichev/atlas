@@ -96,7 +96,8 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* watch does not see new files or folders
 	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 * check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
-* **(MVP)** In-code notes should match drupal rules
+* **(MVP)** In-code notes should use ngdocs syntax
+	* create docs with [https://github.com/angular/dgeni](https://github.com/angular/dgeni)
 * **(MVP)** Pull in complete angular components via Package Manager
     * first test component will be the Object Viewer
     * need to figure out how to construct the components to match system

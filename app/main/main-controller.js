@@ -1,7 +1,16 @@
 'use strict';
 
+/**
+* @ngdoc controller
+* @name angularApp.MainCtrl
+*
+* @requires $scope
+* @description
+* Creates an example object
+*/
+
 angular.module('angularApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', function ($scope) {
 
     $scope.scopedObject = [
       {
@@ -21,4 +30,4 @@ angular.module('angularApp')
         'an object': {'syfyobjectKey1':'objectValue1syfy','syfyobjectKey2':'objectValue2syfy'}
       }
     ];
-  });
+  }]);

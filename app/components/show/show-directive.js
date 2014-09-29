@@ -1,7 +1,17 @@
 'use strict';
 
+/**
+* @ngdoc directive
+* @name angularApp.show
+*
+* @requires getGalleries
+* @description
+* Creates the <show> element
+* @scope show
+*/
+
 angular.module('angularApp')
-	.directive('show', function(getGalleries) {
+	.directive('show', ['getGalleries', function(getGalleries) {
 		return {
 			restrict: 'E',
 			templateUrl: 'components/show/show.html',
@@ -18,16 +28,4 @@ angular.module('angularApp')
         });
       }
 		};
-  })
-  .directive('showSmall', function(getGalleries) {
-    return {
-      restrict: 'E',
-      templateUrl: 'components/show/show-small.html',
-      scope: {
-        show: '='
-      },
-      link: function(scope, element, attrs, fn) {
-
-      }
-    };
-  });
+  }]);

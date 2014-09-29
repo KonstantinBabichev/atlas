@@ -1,5 +1,14 @@
 'use strict';
 
+/**
+* @ngdoc directive
+* @name angularApp.objectViewer
+*
+* @requires RecursionHelper
+* @description
+* Creates the <object-viewer> html element, which breaks down an object's parts and gives each part an html wrapper
+*/
+
 angular.module('angularApp')
 	.directive('objectViewer',['RecursionHelper', function(RecursionHelper) {
 		return {
@@ -16,7 +25,7 @@ angular.module('angularApp')
       },
       controller: function($scope){
         $scope.test = function (value){
-          if (typeof(value) === 'function') {
+          if (angular.isFunction(value)) {
             return null;
           }
           return value;
