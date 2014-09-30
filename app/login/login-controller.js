@@ -1,12 +1,12 @@
 'use strict';
 
 /**
-* @ngdoc controller
+* @ngdoc service
 * @name angularApp.LoginCtrl
 *
-* @requires $scope
+* @requires
 * @description
-* Placeholder for the /login section controller
+* Controller that is a placeholder for the /login section controller
 */
 
 angular.module('angularApp')

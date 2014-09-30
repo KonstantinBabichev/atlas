@@ -4,7 +4,6 @@
 * @ngdoc filter
 * @name angularApp.RecursionHelper
 *
-* @requires $compile
 * @description
 * An Angular service which helps with creating recursive directives.
 * @author Mark Lagendijk
@@ -17,7 +16,7 @@ angular.module('angularApp')
     return {
       /**
       * @ngdoc method
-      * @name compile
+      * @name angularApp.RecursionHelper#compile
       * @methodOf angularApp.RecursionHelper
       * @description
       * Manually compiles the element, fixing the recursion loop.

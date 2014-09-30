@@ -1,12 +1,11 @@
 'use strict';
 
 /**
-* @ngdoc controller
+* @ngdoc service
 * @name angularApp.ContentItemCtrl
 *
-* @requires $scope, $route, Restangular, contentItem
 * @description
-* Takes the first and second parameters of the URL and checks our REST service. Response from service is an single object added to the scope as 'contentItem'
+* * Controller that takes the first and second parameters of the URL and checks our REST service. Response from service is an single object added to the scope as 'contentItem'
 */
 
 angular.module('angularApp')

@@ -1,10 +1,9 @@
 'use strict';
 
 /**
-* @ngdoc property
-* @name angularApp.checkValueType
+* @ngdoc service
+* @name angularApp.publisherRestangularFactory
 *
-* @requires RestangularProvider
 * @description
 * REST service configuration for our Publisher instance
 */

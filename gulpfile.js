@@ -12,7 +12,12 @@ var bowerConfig = {
 
 gulp.task('help', $.taskListing);
 
-
+gulp.task('dgeni', function() {
+  var dgeni = new $.dgeni([require('./docs/dgeni-docs')]);
+  return dgeni.generate().then(function(docs) {
+      console.log(docs.length, 'docs generated');
+    });
+});
 /*============================================================
 =                             CONCAT                          =
 ============================================================*/

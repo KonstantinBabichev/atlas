@@ -1,12 +1,13 @@
 'use strict';
 
 /**
-* @ngdoc controller
+* @ngdoc service
 * @name angularApp.GalleryCtrl
 *
-* @requires $scope, Restangular, contentItem, getShow
+//* @requires contentItem, angularApp.getShow
+* @requires angularApp.getShow
 * @description
-* Calls REST service to retrieve a single gallery's object. Also grabs the gallery's parent show object using the getShow factory's showFromShowId method
+* Controller that calls REST service to retrieve a single gallery's object. Also grabs the gallery's parent show object using the getShow factory's showFromShowId method
 */
 
 angular.module('angularApp')

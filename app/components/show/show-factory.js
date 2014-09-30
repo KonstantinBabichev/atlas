@@ -4,7 +4,6 @@
 * @ngdoc service
 * @name angularApp.getShow
 *
-* @requires $filter, Restangular
 * @description
 * Provides methods for getting full show objects from our REST service
 */
@@ -15,7 +14,7 @@ angular.module('angularApp')
     return {
       /**
       * @ngdoc method
-      * @name showFromShowId
+      * @name angularApp.getShow#showFromShowId
       * @methodOf angularApp.getShow
       * @param {string} 'showId' - the id of the show
       * @returns {object} full SHOW object from REST service

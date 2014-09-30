@@ -1,12 +1,12 @@
 'use strict';
 
 /**
-* @ngdoc controller
+* @ngdoc service
 * @name angularApp.MainCtrl
 *
-* @requires $scope
+* @requires
 * @description
-* Creates an example object
+* Controller that creates an example object
 */
 
 angular.module('angularApp')

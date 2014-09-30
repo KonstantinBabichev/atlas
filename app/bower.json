@@ -11,8 +11,7 @@
     "restangular": "*"
   },
   "devDependencies": {
-    "angular-mocks": "*",
-    "angular-scenario": "*"
+    "angular-mocks": "*"
   },
   "overrides": {
 

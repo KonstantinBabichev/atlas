@@ -4,9 +4,9 @@
 * @ngdoc directive
 * @name angularApp.showSmall
 *
-* @requires getGalleries
+* @requires angularApp.getGalleries
 * @description
-* Creates the <show-small> element
+* Creates the <pre><show-small></pre> element
 * @scope show
 */
 

@@ -4,7 +4,7 @@
 * @ngdoc directive
 * @name angularApp.show
 *
-* @requires getGalleries
+* @requires angularApp.getGalleries
 * @description
 * Creates the <show> element
 * @scope show

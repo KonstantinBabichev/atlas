@@ -4,6 +4,7 @@ var gulp = require('gulp');
 global.$ = require('gulp-load-plugins')({
   pattern: [
     'gulp-*',
+    'dgeni',
     'main-bower-files',
     'uglify-save-license',
     'browser-sync',

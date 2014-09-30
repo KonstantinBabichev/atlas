@@ -6,6 +6,9 @@
   },
   "devDependencies": {
     "browser-sync": "^1.3.5",
+    "canonical-path": "0.0.2",
+    "dgeni": "^0.4.0",
+    "dgeni-packages": "^0.10.0",
     "gulp": "^3.8.7",
     "gulp-angular-templatecache": "^1.3.0",
     "gulp-compass": "^1.2.0",

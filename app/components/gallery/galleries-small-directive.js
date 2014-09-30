@@ -4,7 +4,7 @@
 * @ngdoc directive
 * @name angularApp.galleriesSmall
 *
-* @requires getGalleries
+* @requires angularApp.getGalleries
 * @description
 * Creates the <galleries-small> element
 * @scope galleries
