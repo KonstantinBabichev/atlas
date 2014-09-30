@@ -1,5 +1,14 @@
 'use strict';
 
+/**
+* @ngdoc directive
+* @name angularApp.loginForm
+*
+* @requires
+* @description
+* Creates the <login-form> element
+*/
+
 angular.module('angularApp')
 	.directive('loginForm', function() {
 		return {

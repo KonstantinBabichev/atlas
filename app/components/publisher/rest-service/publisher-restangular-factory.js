@@ -1,5 +1,14 @@
 'use strict';
 
+/**
+* @ngdoc property
+* @name angularApp.checkValueType
+*
+* @requires RestangularProvider
+* @description
+* REST service configuration for our Publisher instance
+*/
+
 angular.module('angularApp')
 .config(function(RestangularProvider){
 

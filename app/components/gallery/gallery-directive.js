@@ -1,5 +1,14 @@
 'use strict';
 
+/**
+* @ngdoc directive
+* @name angularApp.gallery
+*
+* @requires
+* @description
+* Creates the <gallery> element
+*/
+
 angular.module('angularApp')
 	.directive('gallery', function() {
 		return {
@@ -10,17 +19,4 @@ angular.module('angularApp')
 
 			}
 		};
-  })
-  .directive('gallerySmall', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'components/gallery/gallery-small.html',
-      scope: {
-        gallery: '='
-      },
-      link: function(scope, element, attrs, fn) {
-
-
-      }
-    };
   });
