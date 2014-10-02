@@ -91,6 +91,12 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 
 ### General Items
 * auto-save /build to branch:gh-pages
+	* basic functionality in place via [gulp-gh-pages](https://github.com/rowoot/gulp-gh-pages)
+	* add: /docs
+	* add: section in ARCHitecture document
+* DOCS: need to create a docs app
+	* copy functionality from angular.js/docs
+	* already have dgeni doc creator working
 * **(MVP)** need to set up browsersync to use IP for multi-devices
 * **(MVP)** watch all html templates and auto-add to templates.js
 	* watch does not see new files or folders
