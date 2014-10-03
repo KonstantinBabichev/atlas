@@ -65,8 +65,8 @@ The system creates a single markdown file compiling all the ngdocs from each /ap
 ## Example Code
 I have added multiple files with directives, controllers, etc into the /app folder. The point of this is to know exactly what the files that the Yeoman generator will be building out will look like. 
 
-* [Publisher example code](publisher.md)
-* [General example code](example-code-explained.md)
+* [Publisher example code](docs/publisher.md)
+* [General example code](docs/example-code-explained.md)
 
 ---
 
