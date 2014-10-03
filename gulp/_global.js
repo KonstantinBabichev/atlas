@@ -44,6 +44,7 @@ global.SETTINGS = {
       'app/**/*.scss',
       'app/styles/styles.scss'], // calls main style sass file, which imports the others
     scripts: [ // Application javascripts
+      '!docs/**', // ignore documentation section
       '!app/bower_components/**', // ignore bower-ingested scripts
       '!app/**/*_test.js', // ignore our test scripts (for now)
       '!app/scripts/templates.js', // ignore our test scripts (for now)
@@ -59,7 +60,8 @@ global.SETTINGS = {
     htmlMain: 'app/index.html',
     images: 'app/img/',
     fonts: 'app/fonts/',
-    bower: 'app/bower_components/'
+    bower: 'app/bower_components/',
+    docs: 'docs/partials'
   },
   build: {
     app: 'build/',
@@ -74,3 +76,5 @@ global.SETTINGS = {
   },
   scss: 'scss/'
 };
+
+

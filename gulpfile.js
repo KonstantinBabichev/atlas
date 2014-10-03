@@ -12,15 +12,13 @@ var bowerConfig = {
 
 gulp.task('help', $.taskListing);
 
-gulp.task('dgeni', function() {
-  var dgeni = new $.dgeni([require('./docs/dgeni-docs')]);
-  return dgeni.generate().then(function(docs) {
-    console.log(docs.length, 'docs generated');
-  });
-});
-
+/*********************************************
+Place /build into gh-pages, push to github
+TODO: move to build.js
+TODO: add build as dependency/make sync
+*/
 gulp.task('deploy', function () {
-    gulp.src("./build/**/*")
+    gulp.src('./build/**/*')
       .pipe($.ghPages());
 });
 

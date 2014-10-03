@@ -39,7 +39,7 @@ module.exports = new Package('dgeni-docs', [
 
   // Specify how to match docs to templates.
   // In this case we just use the same static template for all docs
-  templateFinder.templatePatterns.unshift('common.template.html');
+  templateFinder.templatePatterns.unshift('atlas.template.md');
 
   // Specify where the writeFilesProcessor will write our generated doc files
   writeFilesProcessor.outputFolder  = 'docs';

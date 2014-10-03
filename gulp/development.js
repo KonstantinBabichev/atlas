@@ -2,9 +2,9 @@
 var gulp = require('gulp');
 
 /*********************************************
-SCSS .scss GLOBBING
+CSS .css GLOBBING
 */
-gulp.task('dev:scss:globbing', function() {
+gulp.task('dev:css:globbing', function() {
   console.log('-------------------------------------------------- DEVELOPMENT: SCSS Globbing');
 
   return gulp.src(SETTINGS.src.css + 'styles.scss')
@@ -25,7 +25,7 @@ gulp.task('dev:scss:globbing', function() {
 /*********************************************
 Compass compilation
 */
-gulp.task('dev:compass', ['dev:scss:globbing', 'dev:scsslint'], function() {
+gulp.task('dev:compass', ['dev:css:globbing', 'dev:scsslint'], function() {
   console.log('-------------------------------------------------- DEVELOPMENT: Compass .scss conversion');
 
   return gulp.src(SETTINGS.src.styles)

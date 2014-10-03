@@ -45,7 +45,7 @@ Creates the <galleries-small> element
 
 
 ### Dependencies
-* [angularApp.getGalleries](#angularApp.getGalleries)
+* **angularApp.getGalleries**
 
   
   
@@ -116,7 +116,7 @@ Creates the <object-viewer> html element, which breaks down an object's parts an
 
 
 ### Dependencies
-* [angularApp.RecursionHelper](#angularApp.RecursionHelper)
+* **angularApp.RecursionHelper**
 
   
   
@@ -136,7 +136,7 @@ Creates the <show> element
 
 
 ### Dependencies
-* [angularApp.getGalleries](#angularApp.getGalleries)
+* **angularApp.getGalleries**
 
   
   
@@ -156,7 +156,7 @@ Creates the <pre><show-small></pre> element
 
 
 ### Dependencies
-* [angularApp.getGalleries](#angularApp.getGalleries)
+* **angularApp.getGalleries**
 
   
   
@@ -173,6 +173,77 @@ Creates the <pre><show-small></pre> element
 
 ### Description
 Creates the <shows> element
+
+
+  
+  
+  
+
+
+
+---
+
+## angularApp.GalleryCtrl
+### File Path
+/app/components/gallery/gallery-controller.js
+
+
+### Description
+Controller that calls REST service to retrieve a single gallery's object. Also grabs the gallery's parent show object using the getShow factory's showFromShowId method
+
+
+### Dependencies
+* **angularApp.getShow**
+
+  
+  
+  
+
+
+
+---
+
+## angularApp.getGalleries
+### File Path
+/app/components/gallery/galleries-factory.js
+
+
+### Description
+Provides methods for getting full gallery objects from our REST service
+
+
+  
+  
+  
+
+
+
+---
+
+## angularApp.getShow
+### File Path
+/app/components/show/show-factory.js
+
+
+### Description
+Provides methods for getting full show objects from our REST service
+
+
+  
+  
+  
+
+
+
+---
+
+## angularApp.publisherRestangularFactory
+### File Path
+/app/components/publisher/rest-service/publisher-restangular-factory.js
+
+
+### Description
+REST service configuration for our Publisher instance
 
 
   
@@ -224,77 +295,6 @@ Returns the item's type
 
 ### Description
 Creates a filter which takes a boolean true/false and turns it into a {string} 'yes'/'no'
-
-
-  
-  
-  
-
-
-
----
-
-## angularApp.GalleryCtrl
-### File Path
-/app/components/gallery/gallery-controller.js
-
-
-### Description
-Controller that calls REST service to retrieve a single gallery's object. Also grabs the gallery's parent show object using the getShow factory's showFromShowId method
-
-
-### Dependencies
-* [angularApp.getShow](#angularApp.getShow)
-
-  
-  
-  
-
-
-
----
-
-## angularApp.getGalleries
-### File Path
-/app/components/gallery/galleries-factory.js
-
-
-### Description
-Provides methods for getting full gallery objects from our REST service
-
-
-  
-  
-  
-
-
-
----
-
-## angularApp.getShow
-### File Path
-/app/components/show/show-factory.js
-
-
-### Description
-Provides methods for getting full show objects from our REST service
-
-
-  
-  
-  
-
-
-
----
-
-## angularApp.publisherRestangularFactory
-### File Path
-/app/components/publisher/rest-service/publisher-restangular-factory.js
-
-
-### Description
-REST service configuration for our Publisher instance
 
 
   
