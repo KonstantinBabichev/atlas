@@ -52,6 +52,22 @@ First, download this repo and ```cd``` into its directory
 ## What happens next
 After feedback, I will make a Yeoman Generator of the final app system
 
+
+---
+
+## File Documentation
+The system creates a single markdown file compiling all the ngdocs from each /app js file.
+
+[api.md files documentation](https://github.com/scottnath/atlas/blob/master/docs/api.md)
+
+---
+
+## Example Code
+I have added multiple files with directives, controllers, etc into the /app folder. The point of this is to know exactly what the files that the Yeoman generator will be building out will look like. 
+
+* [Publisher example code](publisher.md)
+* [General example code](example-code-explained.md)
+
 ---
 
 ## Questions/Concerns/Bugs I have/Things to Add to system
@@ -138,13 +154,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* what are the artifacts that the developer is authoring and checking into source control?
 
 
----
-
-## Example Code
-I have added multiple files with directives, controllers, etc into the /app folder. The point of this is to know exactly what the files that the Yeoman generator will be building out will look like. 
-
-* [Publisher example code](publisher.md)
-* [General example code](example-code-explained.md)
 
 
 ---
