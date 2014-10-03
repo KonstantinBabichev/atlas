@@ -6,3 +6,4 @@ styles/*
 build/
 npm-debug.log
 local-only
+.idea/
