@@ -1,3 +1,7 @@
+# Ignore project files created by IDE (PhpStorm, Eclipse PDT)
+.idea
+.project
+
 .DS_Store
 app/bower_components
 node_modules
