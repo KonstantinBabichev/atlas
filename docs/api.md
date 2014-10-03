@@ -24,7 +24,7 @@ Creates an empty DIV, fills it with small text. This is an example, non template
 
 
 ### Description
-Creates the <galleries> element
+Creates the ```<galleries>``` element
 
 
   
@@ -41,7 +41,7 @@ Creates the <galleries> element
 
 
 ### Description
-Creates the <galleries-small> element
+Creates the ```<galleries-small>``` element
 
 
 ### Dependencies
@@ -61,7 +61,7 @@ Creates the <galleries-small> element
 
 
 ### Description
-Creates the <gallery> element
+Creates the ```<gallery>``` element
 
 
   
@@ -78,7 +78,7 @@ Creates the <gallery> element
 
 
 ### Description
-Creates the <gallery-small> element
+Creates the ```<gallery-small>``` element
 
 
   
@@ -95,7 +95,7 @@ Creates the <gallery-small> element
 
 
 ### Description
-Creates the <login-form> element
+Creates the ```<login-form>``` element
 
 
   
@@ -112,7 +112,7 @@ Creates the <login-form> element
 
 
 ### Description
-Creates the <object-viewer> html element, which breaks down an object's parts and gives each part an html wrapper
+Creates the ```<object-viewer>``` html element, which breaks down an object's parts and gives each part an html wrapper
 
 
 ### Dependencies
@@ -132,7 +132,7 @@ Creates the <object-viewer> html element, which breaks down an object's parts an
 
 
 ### Description
-Creates the <show> element
+Creates the ```<show>``` element
 
 
 ### Dependencies
@@ -152,7 +152,7 @@ Creates the <show> element
 
 
 ### Description
-Creates the <pre><show-small></pre> element
+Creates the ```<show-small>``` element
 
 
 ### Dependencies
@@ -172,7 +172,58 @@ Creates the <pre><show-small></pre> element
 
 
 ### Description
-Creates the <shows> element
+Creates the ```<shows>``` element
+
+
+  
+  
+  
+
+
+
+---
+
+## angularApp.RecursionHelper
+### File Path
+/app/components/object-viewer/object-viewer-factory.js
+
+
+### Description
+An Angular service which helps with creating recursive directives.
+
+
+  
+  
+  
+
+
+
+---
+
+## angularApp.checkValueType
+### File Path
+/app/components/object-viewer/check-value-type/check-value-type-filter.js
+
+
+### Description
+Returns the item's type
+
+
+  
+  
+  
+
+
+
+---
+
+## angularApp.yesNo
+### File Path
+/app/components/yes-no-filter/yes-no-filter.js
+
+
+### Description
+Creates a filter which takes a boolean true/false and turns it into a {string} 'yes'/'no'
 
 
   
@@ -244,57 +295,6 @@ Provides methods for getting full show objects from our REST service
 
 ### Description
 REST service configuration for our Publisher instance
-
-
-  
-  
-  
-
-
-
----
-
-## angularApp.RecursionHelper
-### File Path
-/app/components/object-viewer/object-viewer-factory.js
-
-
-### Description
-An Angular service which helps with creating recursive directives.
-
-
-  
-  
-  
-
-
-
----
-
-## angularApp.checkValueType
-### File Path
-/app/components/object-viewer/check-value-type/check-value-type-filter.js
-
-
-### Description
-Returns the item's type
-
-
-  
-  
-  
-
-
-
----
-
-## angularApp.yesNo
-### File Path
-/app/components/yes-no-filter/yes-no-filter.js
-
-
-### Description
-Creates a filter which takes a boolean true/false and turns it into a {string} 'yes'/'no'
 
 
   
