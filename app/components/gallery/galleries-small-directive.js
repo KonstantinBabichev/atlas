@@ -6,7 +6,7 @@
 *
 * @requires angularApp.getGalleries
 * @description
-* Creates the <galleries-small> element
+* Creates the ```<galleries-small>``` element
 * @scope galleries
 */
 

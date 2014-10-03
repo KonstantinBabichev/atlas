@@ -4,7 +4,6 @@
 * @ngdoc service
 * @name angularApp.ContentTypeCtrl
 *
-* @requires
 * @description
 * Controller that takes the first parameter of the URL and checks our REST service. Response from service is an object added to the scope as 'allContentItems'
 */

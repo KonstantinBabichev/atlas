@@ -4,9 +4,8 @@
 * @ngdoc directive
 * @name angularApp.gallerySmall
 *
-* @requires
 * @description
-* Creates the <gallery-small> element
+* Creates the ```<gallery-small>``` element
 * @scope gallery
 */
 

@@ -4,9 +4,8 @@
 * @ngdoc directive
 * @name angularApp.loginForm
 *
-* @requires
 * @description
-* Creates the <login-form> element
+* Creates the ```<login-form>``` element
 */
 
 angular.module('angularApp')

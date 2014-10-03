@@ -4,7 +4,6 @@
 * @ngdoc service
 * @name angularApp.MainCtrl
 *
-* @requires
 * @description
 * Controller that creates an example object
 */

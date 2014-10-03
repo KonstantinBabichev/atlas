@@ -6,7 +6,7 @@
 *
 * @requires angularApp.RecursionHelper
 * @description
-* Creates the <object-viewer> html element, which breaks down an object's parts and gives each part an html wrapper
+* Creates the ```<object-viewer>``` html element, which breaks down an object's parts and gives each part an html wrapper
 */
 
 angular.module('angularApp')

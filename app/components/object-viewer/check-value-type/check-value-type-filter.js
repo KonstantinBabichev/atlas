@@ -4,7 +4,6 @@
 * @ngdoc filter
 * @name angularApp.checkValueType
 *
-* @requires
 * @description
 * Returns the item's type
 * @param {unknown} item

@@ -4,7 +4,6 @@
 * @ngdoc service
 * @name angularApp.GalleryCtrl
 *
-//* @requires contentItem, angularApp.getShow
 * @requires angularApp.getShow
 * @description
 * Controller that calls REST service to retrieve a single gallery's object. Also grabs the gallery's parent show object using the getShow factory's showFromShowId method

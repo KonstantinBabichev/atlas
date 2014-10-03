@@ -6,7 +6,7 @@
 *
 * @requires angularApp.getGalleries
 * @description
-* Creates the <show> element
+* Creates the ```<show>``` element
 * @scope show
 */
 

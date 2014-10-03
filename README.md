@@ -119,6 +119,8 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 		* inlcude object-viewer
 	* wordpress
 	* browser storage
+* Contributors section
+* stackoverflow Q: what is use-case for "view" stand-alone template
 
 ### Publisher
 4. gallery: borealis + transform
@@ -130,6 +132,11 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 
 ### To be Researched
 * UI-Route vs Angular Route
+
+### Presentations
+* Bill E requested diagrams
+	* what are the artifacts that the developer is authoring and checking into source control?
+
 
 ---
 

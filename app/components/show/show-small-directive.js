@@ -6,7 +6,7 @@
 *
 * @requires angularApp.getGalleries
 * @description
-* Creates the <pre><show-small></pre> element
+* Creates the ```<show-small>``` element
 * @scope show
 */
 

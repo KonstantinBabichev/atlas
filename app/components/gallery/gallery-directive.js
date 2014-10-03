@@ -4,9 +4,8 @@
 * @ngdoc directive
 * @name angularApp.gallery
 *
-* @requires
 * @description
-* Creates the <gallery> element
+* Creates the ```<gallery>``` element
 */
 
 angular.module('angularApp')

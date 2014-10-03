@@ -4,9 +4,8 @@
 * @ngdoc directive
 * @name angularApp.shows
 *
-* @requires
 * @description
-* Creates the <shows> element
+* Creates the ```<shows>``` element
 * @scope shows
 */
 
