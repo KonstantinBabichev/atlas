@@ -9,7 +9,7 @@
 ### Description
 Creates an empty DIV, fills it with small text. This is an example, non templateUrl directive here as a basis for building the Yeoman generator.
 
-file:///Users/scottnath/development/gitrepos/atlas-proposed/docs/api.md#angularApp.getGalleries
+
   
   
   
@@ -30,7 +30,7 @@ Creates the <galleries> element
   
   
   
-file:///#angularApp.getGalleries
+
 
 
 ---
@@ -45,8 +45,7 @@ Creates the <galleries-small> element
 
 
 ### Dependencies
-
-* [angularApp.getGalleries](/#angularApp.getGalleries)
+* [angularApp.getGalleries](#angularApp.getGalleries)
 
   
   
@@ -117,7 +116,6 @@ Creates the <object-viewer> html element, which breaks down an object's parts an
 
 
 ### Dependencies
-
 * [angularApp.RecursionHelper](#angularApp.RecursionHelper)
 
   
@@ -138,7 +136,6 @@ Creates the <show> element
 
 
 ### Dependencies
-
 * [angularApp.getGalleries](#angularApp.getGalleries)
 
   
@@ -159,7 +156,6 @@ Creates the <pre><show-small></pre> element
 
 
 ### Dependencies
-
 * [angularApp.getGalleries](#angularApp.getGalleries)
 
   
@@ -248,7 +244,6 @@ Controller that calls REST service to retrieve a single gallery's object. Also g
 
 
 ### Dependencies
-
 * [angularApp.getShow](#angularApp.getShow)
 
   
