@@ -45,6 +45,6 @@
     "wiredep": "^1.8.5"
   },
   "scripts": {
-    "install": "bower install && bundle install && gulp"
+    "install": "bower install && bundle install"
   }
 }

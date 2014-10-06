@@ -26,6 +26,7 @@ They are long and varied. For full details, please see this document:
 * [compass/sass](http://compass-style.org/install/)
 * [scss-lint](https://github.com/causes/scss-lint#installation)
 * [node.js](http://nodejs.org)
+* [bundler](http://bundler.io/#getting-started)
 
 ### Node-Installed items:
 * [bower](http://bower.io/) 
@@ -39,8 +40,8 @@ They are long and varied. For full details, please see this document:
 
 First, download this repo and ```cd``` into its directory
 
-### Install Bower/Node Components in repo
-```bower install && npm install```
+### Install Bower/Bundler/Node Components in repo
+```npm install```
 
 ### Start Server
 
@@ -90,11 +91,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * **works now!**
     * TODO: perform this update *only* when there is a *NEW* or *REMOVED* .scss file
-14. **(MVP)** How to install compass plugins like singularity + breakpoint
-	* switch to config.rb file
-	* use [compass-options](https://www.npmjs.org/package/compass-options) to get config options from file
-	* install compass dependencies via bundle/gem
-	* use bundle compass to watch for changes [IN SP](https://github.com/north/gulp-style-prototype/blob/5f9dde4d1b5bb4d797fded129dd4fa42911688f5/index.js#L261)
 
 ### NORTH scss structure
 1. need to add NORTH css file structure
@@ -118,8 +114,8 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* watch does not see new files or folders
 	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
 * check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
-* **(MVP)** In-code notes should use ngdocs syntax
-	* create docs with [https://github.com/angular/dgeni](https://github.com/angular/dgeni)
+* **(MVP)** More detail in ngdocs
+* **(MVP)** ngdocs-writing instructions
 * **(MVP)** Pull in complete angular components via Package Manager
     * first test component will be the Object Viewer
     * need to figure out how to construct the components to match system
