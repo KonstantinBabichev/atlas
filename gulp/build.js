@@ -42,12 +42,21 @@ gulp.task('build:clean:html', function () {
 //   cleanFiles(['zip/**/*', '!zip/build-*.zip'], 'zip');
 // });
 
+/*********************************************
+Deploy to GitHub Pages
+Places /build directory into gh-pages branch, pushes branch to github
+*/
+gulp.task('deploy:ghPages', ['build'], function () {
+  console.log('-------------------------------------------------- BUILD: Deploy to GitHub Pages ');
+    return gulp.src(SETTINGS.build.app + '/**/*')
+      .pipe($.print())
+      .pipe($.ghPages());
+});
 
 /*********************************************
 BUILD: Production-Ready Version of system
 NATH: to do
 * .filters should be pulling files from SETTINGS
-* need to figure out how to get .min versions of bower files OR how to minimize them ourselves without error
 
 */
 gulp.task('build', ['build:clean', 'development'], function(){
@@ -59,8 +68,8 @@ gulp.task('build', ['build:clean', 'development'], function(){
   console.log('-------------------------------------------------- BUILD: Production-Ready ');
   var assets = $.useref.assets();
   return gulp.src(SETTINGS.src.htmlMain)
-    .pipe(assets)
-    .pipe($.rev())
+    .pipe(assets) // useref is looking for all the assets in our build blocks in app/ main html file
+    .pipe($.rev()) // creates out file revision names of those assets
 
     // START: Process User-Created (non-bower) javascript files
     .pipe(jsFilter)
@@ -77,14 +86,16 @@ gulp.task('build', ['build:clean', 'development'], function(){
     .pipe(bowerFilter.restore())
     // END: Process Bower javascript files
 
+    // START: Process css files
     .pipe(cssFilter)
     .pipe($.print())
     .pipe($.minifyCss({keepSpecialComments: '*'}))
     .pipe(cssFilter.restore())
+    // END: Process css files
 
     .pipe(assets.restore())
-    .pipe($.useref())
-    .pipe($.revReplace())
-    .pipe(gulp.dest(SETTINGS.build.app));
+    .pipe($.useref()) // looks for build blocks
+    .pipe($.revReplace()) // replaces pointers to our new, revision-named assets
+    .pipe(gulp.dest(SETTINGS.build.app)); // uses our new html file to build the /build main html file
 
 });
