@@ -53,6 +53,7 @@ NATH: to do
 gulp.task('build', ['build:clean', 'development'], function(){
 
   var jsFilter = $.filter('**/all-*.js'); // our scripts
+  var bowerFilter = $.filter('**/bower-*.js'); // our scripts
   var cssFilter = $.filter('**/*.css'); // our css
 
   console.log('-------------------------------------------------- BUILD: Production-Ready ');
@@ -68,6 +69,13 @@ gulp.task('build', ['build:clean', 'development'], function(){
     .pipe($.uglify()) // Uglify2, our minification choice for javascripts
     .pipe(jsFilter.restore())
     // END: Process User-Created (non-bower) javascript files
+
+    // START: Process Bower javascript files
+    .pipe(bowerFilter)
+    .pipe($.print())
+    .pipe($.uglify()) // Uglify2, our minification choice for javascripts
+    .pipe(bowerFilter.restore())
+    // END: Process Bower javascript files
 
     .pipe(cssFilter)
     .pipe($.print())
