@@ -42,5 +42,8 @@
     "require-dir": "^0.1.0",
     "uglify-save-license": "^0.4.1",
     "wiredep": "^1.8.5"
+  },
+  "scripts": {
+    "install": "bower install && gulp"
   }
 }
