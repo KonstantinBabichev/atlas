@@ -1,5 +1,6 @@
 'use strict';
 var gulp = require('gulp');
+var dirs = require('compass-options').dirs();
 
 /*********************************************
 CSS .css GLOBBING
@@ -30,11 +31,10 @@ gulp.task('dev:compass', ['dev:css:globbing', 'dev:scsslint'], function() {
 
   return gulp.src(SETTINGS.src.styles)
     .pipe($.compass({
+      config_file: 'config.rb',
       css: 'app/styles',
       sass: 'app/styles',
-      comments: true,
-      style: 'nested',
-      logging: true
+      bundle_exec: true
     }))
     .pipe($.print())
     .on('error', function(err) {

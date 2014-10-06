@@ -83,7 +83,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
     * NOTE: crashing on errors is fixed in gulp 4.0, eta tbd
 13. Error sounds/messages
-14. **(MVP)** How to install compass plugins like singularity + breakpoint
 15. **(MVP)** /app/**.js globbing into /app/index.html
 
 ### Compass/css specific
@@ -91,15 +90,16 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
     * **works now!**
     * TODO: perform this update *only* when there is a *NEW* or *REMOVED* .scss file
+14. **(MVP)** How to install compass plugins like singularity + breakpoint
+	* switch to config.rb file
+	* use [compass-options](https://www.npmjs.org/package/compass-options) to get config options from file
+	* install compass dependencies via bundle/gem
+	* use bundle compass to watch for changes [IN SP](https://github.com/north/gulp-style-prototype/blob/5f9dde4d1b5bb4d797fded129dd4fa42911688f5/index.js#L261)
 
 ### NORTH scss structure
 1. need to add NORTH css file structure
 	* will require upgrade to css globbing to ignore north-required import files (_mixins,_variables,_extensions) or accept wildcards for subfolders
 2. [North folder structure examples](https://github.com/north/north/tree/master/examples/sass/partials)
-
-### Bower specific
-16. **(MVP)** bower file handling and conversion/minification not complete
-19. **(MVP)** Bower files minification creates bugs
 
 ### TESTING
 * **(MVP)** Unit Testing

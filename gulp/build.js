@@ -56,8 +56,7 @@ gulp.task('deploy:ghPages', ['build'], function () {
 /*********************************************
 BUILD: Production-Ready Version of system
 NATH: to do
-* .filters should be pulling files from SETTINGS
-
+- .filters should be pulling files from SETTINGS
 */
 gulp.task('build', ['build:clean', 'development'], function(){
 
