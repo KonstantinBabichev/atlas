@@ -74,7 +74,7 @@ After feedback, I will make a Yeoman Generator of the final app system
 ## File Documentation
 The system creates a single markdown file compiling all the ngdocs from each /app js file.
 
-[api.md files documentation](https://github.com/scottnath/atlas/blob/master/docs/api.md)
+* [api.md files documentation](https://github.com/scottnath/atlas/blob/master/docs/api.md)
 
 ---
 
@@ -99,7 +99,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
     * [how-to-handle-gulp-watch-errors-with-plumber](http://cameronspear.com/blog/how-to-handle-gulp-watch-errors-with-plumber)
     * NOTE: crashing on errors is fixed in gulp 4.0, eta tbd
 13. Error sounds/messages
-15. **(MVP)** /app/**.js globbing into /app/index.html
 
 ### Compass/css specific
 1. Is there a way to compile Compass/SASS using Node instead of Ruby?
@@ -122,7 +121,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* add: /docs
 	* add: section in ARCHitecture document
 * DOCS: need to create a docs app
-	* copy functionality from angular.js/docs
 	* already have dgeni doc creator working
 * **(MVP)** need to set up browsersync to use IP for multi-devices
 * **(MVP)** watch all html templates and auto-add to templates.js

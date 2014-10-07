@@ -3,6 +3,19 @@ var gulp = require('gulp');
 var dirs = require('compass-options').dirs();
 
 /*********************************************
+Javascript Globbing/Indexing
+*/
+gulp.task('dev:js:globbing', function () {
+  console.log('-------------------------------------------------- DEVELOPMENT: Javascript Globbing');
+  var target = gulp.src(SETTINGS.src.htmlMain);
+  var sources = gulp.src(SETTINGS.src.scripts, {read: false});
+
+  return target.pipe($.inject(sources,{relative: true}))
+    .pipe(gulp.dest(SETTINGS.src.app))
+    .pipe(reload({stream:true}));
+});
+
+/*********************************************
 CSS .css GLOBBING
 */
 gulp.task('dev:css:globbing', function() {
@@ -46,6 +59,8 @@ gulp.task('dev:compass', ['dev:css:globbing', 'dev:scsslint'], function() {
 
 /*********************************************
 ESLint Javascript Linting
+NATH Todo: eslint should only be checking CHANGED files
+NATH Todo: SETTINGS.src.scripts contains templates.js/throws error
 */
 gulp.task('dev:eslint', function () {
   console.log('-------------------------------------------------- DEVELOPMENT: ESLint Javascript Linting');
@@ -114,12 +129,12 @@ gulp.task('dev:watch', function(){
   gulp.watch(SETTINGS.src.styles, ['dev:compass']);
   gulp.watch(SETTINGS.src.html, ['dev:html:convert']);
   gulp.watch(SETTINGS.src.css, ['dev:csslint']);
-  gulp.watch(SETTINGS.src.scripts, ['dev:eslint']);
+  gulp.watch(SETTINGS.src.scripts, ['dev:js:globbing','dev:eslint']);
 });
 
 /*********************************************
 DEVELOPMENT Master Task
 */
-gulp.task('development', ['wiredep','dev:compass', 'dev:eslint', 'dev:csslint', 'dev:html:convert']);
+gulp.task('development', ['wiredep','dev:js:globbing', 'dev:compass', 'dev:eslint', 'dev:csslint', 'dev:html:convert']);
 
 

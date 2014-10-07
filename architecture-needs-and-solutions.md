@@ -153,6 +153,19 @@ Then in '13 [ESLint came around](http://www.nczonline.net/blog/2013/07/16/introd
 	* NBCUOts could create a rule repository
 
 ---
+<a id="js-globbing"></a>
+## Javascript Globbing
+
+### Task Requirements
+* Find all non-bower javascript files in our /app system
+* Add these files to the main /app index.html file
+* Refresh the main html file
+
+### Choice: [gulp-inject](https://github.com/klei/gulp-inject)
+
+Gulp-Inject allows us to inject a list we choose into any type of file. This basic script is a perfect one-job system to cover this requirement.
+
+---
 <a id="css-globbing"></a>
 ## CSS Globbing
 

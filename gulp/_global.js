@@ -9,8 +9,7 @@ global.$ = require('gulp-load-plugins')({
     'uglify-save-license',
     'browser-sync',
     'chalk',
-    'map-stream',
-    'path'
+    'map-stream'
   ]
 });
 
@@ -46,10 +45,12 @@ global.SETTINGS = {
     scripts: [ // Application javascripts
       '!docs/**', // ignore documentation section
       '!app/bower_components/**', // ignore bower-ingested scripts
-      '!app/**/*_test.js', // ignore our test scripts (for now)
-      '!app/scripts/templates.js', // ignore our test scripts (for now)
-      'app/**/*.js', // finds all app files in their folders
-      'app/app.js'], // main application file
+      '!app/**/*_test.js', // ignore our test scripts
+      'app/scripts/templates.js', // template script
+      'app/scripts/app.js', // main app script
+      'app/**/*.js'], // main application file
+    scriptMain: 'app/scripts/app.js',
+    scriptTemplates: 'app/scripts/templates.js',
     scriptFolder: 'app/scripts/',
     templates: 'app/templates/',
     html: [

@@ -32,7 +32,6 @@ angular.module('angularApp')
         };
       },
 			link: function(scope, element, attrs, fn) {
-        //var tester = "a test again";
 
 			}
 		};

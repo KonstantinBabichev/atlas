@@ -14,7 +14,7 @@ angular.module('angularApp')
     $scope.scopedObject = [
       {
         'key': 'bravo',
-        'title': 'Bravo TV',
+        'title': 'Bravo TV: Watch What Happens',
         'url': 'http://bravotv.com',
         'description': 'The Real Housewives of New York City, The Singles Project ...',
         'an array': ['arrayItem1','arrayItem2','arrayItem1'],
