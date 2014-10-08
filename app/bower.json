@@ -9,7 +9,7 @@
     "angular-touch": "*",
     "angular-animate": "*",
     "restangular": "*",
-    "object-viewer": "*"
+    "angular-object-viewer": "git@github.com:scottnath/angular-object-viewer.git"
   },
   "devDependencies": {
     "angular-material": "~0.4.0",
