@@ -62,6 +62,20 @@ First, download this repo and ```cd``` into its directory
 * ```gulp serve:build```
 	* starts a server using the /build folder
 
+---
+## Viewing Live Changes
+Gulp creates a webserver using [Browser Sync](http://browsersync.io), which creates two URLs - localhost and an IP. You can view changes live in **any device** that is on the same local network as your machine by using that IP address. The IP address will be printed in your terminal/console window after you first run ```gulp``` to start the server. 
+
+**Example:**
+
+```
+...
+[11:28:24] Finished 'default' after 8.29 μs
+[BS] Local URL: http://localhost:8001
+[BS] External URL: http://192.168.3.101:8001
+[BS] Serving files from: app
+Started connect web server on localhost:8001
+```
 
 ---
 
@@ -122,11 +136,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* add: section in ARCHitecture document
 * DOCS: need to create a docs app
 	* already have dgeni doc creator working
-* **(MVP)** need to set up browsersync to use IP for multi-devices
-* **(MVP)** watch all html templates and auto-add to templates.js
-	* watch does not see new files or folders
-	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
-* check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
 * **(MVP)** More detail in ngdocs
 * **(MVP)** ngdocs-writing instructions
 * **(MVP)** Pull in complete angular components via Package Manager
@@ -146,6 +155,8 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* browser storage
 * Contributors section
 * stackoverflow Q: what is use-case for "view" stand-alone template
+* rimraf deprecated
+	* npm WARN deprecated gulp-rimraf@0.1.1: Use npmjs.org/del instead, see https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
 
 ### Publisher
 4. gallery: borealis + transform
