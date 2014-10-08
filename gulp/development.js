@@ -25,7 +25,7 @@ gulp.task('dev:css:globbing', function() {
     .pipe($.print())
     .pipe($.cssGlobbing({
       extensions: ['.css', '.scss'],
-      ignoreFolders: ['../styles'],
+      ignoreFolders: ['../styles','../sass','../themes','../themes/bravo','../themes/oxygen','../themes/syfy'], //Kostya: i think that can be optimized/automatized
       autoReplaceBlock: {
         onOff: true,
         globBlockBegin: 'cssGlobbingBegin',

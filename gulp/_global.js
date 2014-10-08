@@ -40,8 +40,15 @@ global.SETTINGS = {
     styles: [ // SASS files
       '!app/bower_components/**', // ignore any scss files in bower-ingested folders
       '!app/**/_extends.scss', '!app/**/_mixins.scss', '!app/**/_variables.scss', // ignore north-inspired files, which are brought in by their parent .scss file
+      '!app/themes/**/*.scss',
       'app/**/*.scss',
       'app/styles/styles.scss'], // calls main style sass file, which imports the others
+    themes: {
+      all: 'app/themes/',
+      bravo: 'app/themes/bravo/',
+      oxygen: 'app/themes/oxygen/',
+      syfy: 'app/themes/syfy/'
+    },
     scripts: [ // Application javascripts
       '!docs/**', // ignore documentation section
       '!app/bower_components/**', // ignore bower-ingested scripts
@@ -67,6 +74,11 @@ global.SETTINGS = {
   build: {
     app: 'build/',
     css: 'build/css/',
+    brands: {
+      bravo: 'build/themes/bravo/css',
+      oxygen: 'build/themes/oxygen/css',
+      syfy: 'build/themes/syfy/css'
+    },
     js: 'build/js/',
     templates: 'build/templates/',
     html: 'build/html',

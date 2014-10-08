@@ -22,6 +22,7 @@ GEM
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
     ffi (1.9.5)
+    ffi (1.9.5-x64-mingw32)
     modular-scale (2.0.5)
       compass (>= 0.12.0)
     multi_json (1.10.1)
@@ -39,6 +40,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   breakpoint (~> 2.4)
