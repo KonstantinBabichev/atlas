@@ -116,9 +116,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 
 ### Compass/css specific
 1. Is there a way to compile Compass/SASS using Node instead of Ruby?
-15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
-    * **works now!**
-    * TODO: perform this update *only* when there is a *NEW* or *REMOVED* .scss file
 
 ### NORTH scss structure
 1. need to add NORTH css file structure
@@ -136,18 +133,20 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* add: section in ARCHitecture document
 * DOCS: need to create a docs app
 	* already have dgeni doc creator working
+	* styling: https://github.com/angular/material
 * **(MVP)** More detail in ngdocs
 * **(MVP)** ngdocs-writing instructions
 * **(MVP)** Pull in complete angular components via Package Manager
-    * first test component will be the Object Viewer
-    * need to figure out how to construct the components to match system
-    * https://github.com/angular/material
+    * ~~first test component will be the Object Viewer~~ done!
+    * need to document how to construct the components to match system
 	* Choice for pulled-in items
 	    * Use as is, allowing fresh pull-requests
 	    * Add to system as editable code
+	* ability to pull from private repository
 * Pull in html patterns via Package Manager and create directives from them    
 * different/mutiple REST options
 	* publisher/drupal
+		* could this be pulled in, with a config for site variables??
 	* firebase
 		* basic setup YOURFIREBASEACCT/YOURFIREBASEPASS/YOURFIREBASEDB
 		* inlcude object-viewer
