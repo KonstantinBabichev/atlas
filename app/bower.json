@@ -8,12 +8,12 @@
     "angular-route": "*",
     "angular-touch": "*",
     "angular-animate": "*",
-    "restangular": "*"
+    "restangular": "*",
+    "angular-object-viewer": "git@github.com:scottnath/angular-object-viewer.git"
   },
   "devDependencies": {
+    "angular-material": "~0.4.0",
     "angular-mocks": "*"
   },
-  "overrides": {
-
-  }
+  "overrides": {}
 }

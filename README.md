@@ -62,6 +62,20 @@ First, download this repo and ```cd``` into its directory
 * ```gulp serve:build```
 	* starts a server using the /build folder
 
+---
+## Viewing Live Changes
+Gulp creates a webserver using [Browser Sync](http://browsersync.io), which creates two URLs - localhost and an IP. You can view changes live in **any device** that is on the same local network as your machine by using that IP address. The IP address will be printed in your terminal/console window after you first run ```gulp``` to start the server. 
+
+**Example:**
+
+```
+...
+[11:28:24] Finished 'default' after 8.29 μs
+[BS] Local URL: http://localhost:8001
+[BS] External URL: http://192.168.3.101:8001
+[BS] Serving files from: app
+Started connect web server on localhost:8001
+```
 
 ---
 
@@ -102,9 +116,6 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 
 ### Compass/css specific
 1. Is there a way to compile Compass/SASS using Node instead of Ruby?
-15. COMPASS: Can I get compass to auto-include all .scss files without adding them to the main (styles.scss)? 
-    * **works now!**
-    * TODO: perform this update *only* when there is a *NEW* or *REMOVED* .scss file
 
 ### NORTH scss structure
 1. need to add NORTH css file structure
@@ -122,23 +133,20 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* add: section in ARCHitecture document
 * DOCS: need to create a docs app
 	* already have dgeni doc creator working
-* **(MVP)** need to set up browsersync to use IP for multi-devices
-* **(MVP)** watch all html templates and auto-add to templates.js
-	* watch does not see new files or folders
-	* watch is not picking up new files! gulp-watch should be fixing this issue...it is not (test code in dev:html:convert)
-* check only newly-changed files https://github.com/juanfran/gulp-scss-lint#lint-only-modified-files, https://github.com/wearefractal/gulp-cached
+	* styling: https://github.com/angular/material
 * **(MVP)** More detail in ngdocs
 * **(MVP)** ngdocs-writing instructions
 * **(MVP)** Pull in complete angular components via Package Manager
-    * first test component will be the Object Viewer
-    * need to figure out how to construct the components to match system
-    * https://github.com/angular/material
+    * ~~first test component will be the Object Viewer~~ done!
+    * need to document how to construct the components to match system
 	* Choice for pulled-in items
 	    * Use as is, allowing fresh pull-requests
 	    * Add to system as editable code
+	* ability to pull from private repository
 * Pull in html patterns via Package Manager and create directives from them    
 * different/mutiple REST options
 	* publisher/drupal
+		* could this be pulled in, with a config for site variables??
 	* firebase
 		* basic setup YOURFIREBASEACCT/YOURFIREBASEPASS/YOURFIREBASEDB
 		* inlcude object-viewer
@@ -146,6 +154,8 @@ Items marked with **(MVP)** are considered **Minimum-Viable-Product** requiremen
 	* browser storage
 * Contributors section
 * stackoverflow Q: what is use-case for "view" stand-alone template
+* rimraf deprecated
+	* npm WARN deprecated gulp-rimraf@0.1.1: Use npmjs.org/del instead, see https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
 
 ### Publisher
 4. gallery: borealis + transform

@@ -36,7 +36,8 @@ global.server = {
 global.SETTINGS = {
   src: {
     app: 'app/', // dev application folder
-    css: 'app/styles/', // compiled css
+    css: 'app/styles/', // compiled css folder
+    cssMain: 'app/styles/styles.css', // main compiled css file
     styles: [ // SASS files
       '!app/bower_components/**', // ignore any scss files in bower-ingested folders
       '!app/**/_extends.scss', '!app/**/_mixins.scss', '!app/**/_variables.scss', // ignore north-inspired files, which are brought in by their parent .scss file
@@ -50,6 +51,12 @@ global.SETTINGS = {
       syfy: 'app/themes/syfy/'
     },
     scripts: [ // Application javascripts
+      '!docs/**', // ignore documentation section
+      '!app/bower_components/**', // ignore bower-ingested scripts
+      '!app/**/*_test.js', // ignore our test scripts
+      '!app/scripts/templates.js', // template script
+      'app/**/*.js'], // main application file
+    scriptsGlobbing: [ // Application javascripts
       '!docs/**', // ignore documentation section
       '!app/bower_components/**', // ignore bower-ingested scripts
       '!app/**/*_test.js', // ignore our test scripts
