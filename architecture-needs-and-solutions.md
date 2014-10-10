@@ -17,6 +17,7 @@
   * &#x2717; [CSS Production Conversion](#css-prod)
   * &#x2717; [HTML Production Conversion](#html-convert)
   * &#x2717; [Cache buster/Revisions](#revisioning)
+  * &#x2717; [Application Gulp Tasks & Overrides](#app-gulp)
   * [General](#general)
   
 *&#x2717; = completed section*
@@ -402,6 +403,12 @@ Not really a competition here. We use **gulp-rev** to create unique revision nam
 <a id="font-convert"></a>
 ## Convert fonts/icon fonts/small images to base64 and put in css
 * reduces calls to the server 
+
+---
+<a id="app-gulp"></a>
+## Application Gulp Tasks & Overrides
+
+If a developer adds the folder ```./app/_gulp```, they can add global settings overrides as well as app-specific tasks
 
 ---
 <a id="func"></a>
