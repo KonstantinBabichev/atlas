@@ -62,7 +62,7 @@ global.SETTINGS = {
     scriptsGlobbing: [ // Application javascripts
       '!docs/**', // ignore documentation section
       '!app/bower_components/**', // ignore bower-ingested scripts
-      '!app/gulp/**', // ignore bower-ingested scripts
+      '!app/gulp/**', // ignore gulp custom tasks
       '!app/**/*_test.js', // ignore our test scripts
       'app/scripts/templates.js', // template script
       'app/scripts/app.js', // main app script
