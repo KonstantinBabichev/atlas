@@ -1,5 +1,8 @@
 
 var gulp = require('gulp');
+var path = require('path');
+
+require('require-dir')('../app/gulp');
 
 global.$ = require('gulp-load-plugins')({
   pattern: [
@@ -41,14 +44,14 @@ global.SETTINGS = {
     styles: [ // SASS files
       '!app/bower_components/**', // ignore any scss files in bower-ingested folders
       '!app/**/_extends.scss', '!app/**/_mixins.scss', '!app/**/_variables.scss', // ignore north-inspired files, which are brought in by their parent .scss file
-      '!app/themes/**/*.scss',
+      '!app/styles/themes/**/*.scss',
       'app/**/*.scss',
       'app/styles/styles.scss'], // calls main style sass file, which imports the others
     themes: {
-      all: 'app/themes/',
-      bravo: 'app/themes/bravo/',
-      oxygen: 'app/themes/oxygen/',
-      syfy: 'app/themes/syfy/'
+      all: 'app/styles/themes/',
+      bravo: 'app/styles/themes/bravo/',
+      oxygen: 'app/styles/themes/oxygen/',
+      syfy: 'app/styles/themes/syfy/'
     },
     scripts: [ // Application javascripts
       '!docs/**', // ignore documentation section
@@ -59,6 +62,7 @@ global.SETTINGS = {
     scriptsGlobbing: [ // Application javascripts
       '!docs/**', // ignore documentation section
       '!app/bower_components/**', // ignore bower-ingested scripts
+      '!app/gulp/**', // ignore bower-ingested scripts
       '!app/**/*_test.js', // ignore our test scripts
       'app/scripts/templates.js', // template script
       'app/scripts/app.js', // main app script

@@ -21,10 +21,10 @@ CSS .css GLOBBING
 gulp.task('dev:css:globbing', function() {
   console.log('-------------------------------------------------- DEVELOPMENT: SCSS Globbing');
 
-  return gulp.src(SETTINGS.src.css + 'styles.scss')
+  return gulp.src(SETTINGS.src.css + '_imports.scss')
     .pipe($.cssGlobbing({
       extensions: ['.css', '.scss'],
-      ignoreFolders: ['../styles','../sass','../themes','../themes/bravo','../themes/oxygen','../themes/syfy'], //Kostya: i think that can be optimized/automatized
+      ignoreFolders: ['../styles','../styles/themes','../styles/themes/bravo','../styles/themes/oxygen','../styles/themes/syfy'], //Kostya: i think that can be optimized/automatized
       autoReplaceBlock: {
         onOff: true,
         globBlockBegin: 'cssGlobbingBegin',

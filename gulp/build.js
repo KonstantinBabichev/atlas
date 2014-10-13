@@ -58,7 +58,7 @@ BUILD: Production-Ready Version of system
 NATH: to do
 - .filters should be pulling files from SETTINGS
 */
-gulp.task('build', ['build:clean', 'development'], function(){
+gulp.task('build', ['build:clean', 'development', 'custom'], function(){
 
   var jsFilter = $.filter('**/all-*.js'); // our scripts
   var bowerFilter = $.filter('**/bower-*.js'); // our scripts
